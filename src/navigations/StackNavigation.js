@@ -7,6 +7,7 @@ import Welcome from '../screens/Welcome'
 import Register from '../screens/Register'
 import Login from '../screens/Login'
 import TabNavigation from './TabNavigation'
+import DrawerNavigation from './DrawerNavigation';
 
 
 const Stack = createStackNavigator()
@@ -24,12 +25,14 @@ const StackNavigation = () => {
                 headerStyle: {
                   backgroundColor: "#326da8",
                 },
+                headerLeft: null,
               }}>
                <Stack.Screen name='landing' component={Landing} options={{headerShown:false}} />
                <Stack.Screen name='welcome' component={Welcome} options={{headerShown:false}} />
                <Stack.Screen name='register' component={Register} options={{headerShown:false}} />
                <Stack.Screen name='login' component={Login} options={{headerShown:false}}/>
                <Stack.Screen name='tabs' component={TabNavigation}/>
+               <Stack.Screen name='drawer' component = {DrawerNavigation}/>
             </Stack.Navigator>
         </View>
     )

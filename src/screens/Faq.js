@@ -1,18 +1,16 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native'
 
-const Login = ({navigation}) => {
+const Landing = ({navigation}) => {
     return (
         <View style={styles.container}>
-            <Text>Login Page</Text>
-            <TouchableOpacity style={styles.btn}  onPress={()=> navigation.navigate('drawer')}>
-            <Text>Login</Text>
-            </TouchableOpacity>
+            <Text>FAQ PAGE FOR</Text>
+            <Text>COVID 19 EDUC PLATFORM</Text>
         </View>
     )
 }
 
-export default Login
+export default Landing
 
 const styles = StyleSheet.create({
     container:{
@@ -28,4 +26,5 @@ const styles = StyleSheet.create({
         alignItems:'center',
         height:40
     }
+    
 })
