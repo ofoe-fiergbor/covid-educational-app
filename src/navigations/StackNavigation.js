@@ -8,6 +8,8 @@ import Register from '../screens/Register'
 import Login from '../screens/Login'
 import TabNavigation from './TabNavigation'
 import DrawerNavigation from './DrawerNavigation';
+import PostDetail from '../components/PostWall/PostDetail';
+
 
 
 const Stack = createStackNavigator()
@@ -33,6 +35,7 @@ const StackNavigation = () => {
                <Stack.Screen name='login' component={Login} options={{headerShown:false}}/>
                <Stack.Screen name='tabs' component={TabNavigation}/>
                <Stack.Screen name='drawer' component = {DrawerNavigation}/>
+               <Stack.Screen name='postDetail' component = {PostDetail}/>
             </Stack.Navigator>
         </View>
     )

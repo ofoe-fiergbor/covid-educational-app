@@ -1,31 +1,35 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Modal } from "react-native";
+import { Text, StyleSheet, View, Modal, ScrollView } from "react-native";
 import { connect } from "react-redux";
 import { closeModal } from "../../Redux/Action/modalAction";
 import { AntDesign } from "@expo/vector-icons";
+import PostForm from "./PostForm";
 
 class ModalScreen extends Component {
   render() {
     var { isModalOpen } = this.props;
     return (
-      <Modal visible={isModalOpen} animationType="slide">
-        <View style={styles.modalContent}>
-          <AntDesign
-            name="closecircleo"
-            size={30}
-            color="#e4f5ff"
-            style={{ alignSelf: "center", marginTop: 30 }}
-            onPress={() => this.props.closeModal()}
-          />
-          <View style={styles.modalBackground}></View>
-        </View>
-      </Modal>
+      <ScrollView>
+        <Modal visible={isModalOpen} animationType="slide">
+          <View style={styles.modalContent}>
+            <AntDesign
+              name="closecircleo"
+              size={30}
+              color="#e4f5ff"
+              style={{ alignSelf: "center", marginTop: 30 }}
+              onPress={() => this.props.closeModal()}
+            />
+            <View style={styles.modalBackground}>
+              <PostForm />
+            </View>
+          </View>
+        </Modal>
+      </ScrollView>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.isModalOpen);
   return {
     isModalOpen: state.isModalOpen,
   };
@@ -39,7 +43,8 @@ const styles = StyleSheet.create({
   },
   modalBackground: {
     marginTop: 20,
-    backgroundColor: "#e4f5ff",
+    backgroundColor: "#fff",
+    // backgroundColor: "#e4f5ff",
     paddingHorizontal: 30,
     flex: 1,
     borderTopRightRadius: 40,

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     right: 30,
     justifyContent: "center",
     alignItems: "center",
+    elevation: 29
   },
 });
 

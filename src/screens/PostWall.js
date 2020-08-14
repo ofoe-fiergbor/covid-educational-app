@@ -1,20 +1,30 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
+import { connect } from "react-redux";
 import AddButton from "../components/PostWall/AddButton";
 import ModalScreen from "../components/PostWall/ModalScreen";
+import PostItem from "../components/PostWall/PostItem";
 
 class PostWall extends React.Component {
-    
-    
   render() {
+    let { posts, navigation } = this.props;
     return (
       <View style={styles.container}>
         <ModalScreen />
 
-
-        
-        <Text>Post Wall</Text>
-        <Text>The screen for reading all posts</Text>
+        <FlatList
+          data={posts}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => {
+            return <PostItem post={item.post} navigation={navigation} />;
+          }}
+        />
 
         <AddButton />
       </View>
@@ -22,12 +32,16 @@ class PostWall extends React.Component {
   }
 }
 
-export default PostWall;
+const mstp = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
+export default connect(mstp)(PostWall);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent:'center',
-    // alignItems:'center'
+    backgroundColor: "#fff",
   },
 });
