@@ -23,7 +23,7 @@ const StackNavigation = () => {
                 headerTintColor: "#fff",
 
                 headerStyle: {
-                  backgroundColor: "#326da8",
+                  backgroundColor: "skyblue",
                 },
                 headerLeft: null,
               }}>
