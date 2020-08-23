@@ -9,7 +9,6 @@ import {
   Linking,
   Share,
 } from "react-native";
-import ButtonOne from "./Buttons";
 import { Feather } from '@expo/vector-icons';
 const { width, height } = Dimensions.get("window");
 

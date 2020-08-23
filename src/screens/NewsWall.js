@@ -7,7 +7,7 @@ import {
   ActivityIndicator,
   Share,
 } from "react-native";
-import NewsWallTemplate from "../components/NewsWallTemplate";
+import NewsWallTemplate from "../components/NewsWall/NewsWallTemplate";
 console.disableYellowBox = true;
 
 class NewsWall extends Component {
