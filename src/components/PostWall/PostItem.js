@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, TouchableOpacity, Share } from "react-native";
+import { Text, StyleSheet, View, Share, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { Video } from "expo-av";
 import { Dimensions } from "react-native";
