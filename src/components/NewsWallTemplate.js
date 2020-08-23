@@ -10,8 +10,7 @@ import {
   Share,
 } from "react-native";
 import ButtonOne from "./Buttons";
-import { Ionicons } from "@expo/vector-icons";
-
+import { Feather } from '@expo/vector-icons';
 const { width, height } = Dimensions.get("window");
 
 
@@ -29,13 +28,15 @@ export default class NewsWallTemplate extends Component {
               height: 200,
               backgroundColor: "#fff",
               alignSelf: "center",
-              borderTopLeftRadius: 20,
+              borderRadius: 20,
               elevation: 20,
+              marginVertical: 10,
+              
             }}
           >
             <Image
               source={{ uri: this.props.image }}
-              style={[StyleSheet.absoluteFill, { borderTopLeftRadius: 20 }]}
+              style={[StyleSheet.absoluteFill, { borderRadius: 20, }]}
             />
             <View style={styles.gradient}>
               <Text
@@ -53,10 +54,10 @@ export default class NewsWallTemplate extends Component {
                 {this.props.title}
               </Text>
 
-              <Ionicons
+              <Feather
                 onPress={() => this.props.article(this.props.url)}
-                name="md-share-alt"
-                size={30}
+                name="share"
+                size={23}
                 color="#fff"
                 style={{
                   position: "absolute",
@@ -82,7 +83,7 @@ export default class NewsWallTemplate extends Component {
             </View>
           </View>
         </TouchableWithoutFeedback>
-        <View
+        {/* <View
           style={{
             width: width - 30,
             height: 100,
@@ -124,7 +125,7 @@ export default class NewsWallTemplate extends Component {
               </Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </View>
     );
   }
@@ -140,6 +141,6 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "#000",
     opacity: 0.7,
-    borderTopLeftRadius: 20,
+    borderRadius: 20,
   },
 });

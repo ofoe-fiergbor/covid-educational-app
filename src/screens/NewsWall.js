@@ -90,9 +90,9 @@ sharearticle = async (article) => {
                 image={item.media}
                 url={item.link}
                 title={item.title}
-                date={item.published_date}
-                summary={item.summary}
-                source={item.author}
+                // date={item.published_date}
+                // summary={item.summary}
+                // source={item.author}
                 topic={item.topic}
                 article={this.sharearticle}
               />
