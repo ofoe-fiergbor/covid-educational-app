@@ -14,11 +14,11 @@ const TabNavigation = () => {
     <BottomTabs.Navigator
       initialRouteName="post"
       tabBarOptions={{
-        activeTintColor: "#668cff",
+        activeTintColor: "skyblue",
         style: {
           height: 60,
           paddingBottom: 5,
-          backgroundColor: "#fff",
+          backgroundColor: "#f5f5f5",
           shadowColor: "transparent",
           elevation: 0,
         },
