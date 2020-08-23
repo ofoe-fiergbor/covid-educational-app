@@ -22,10 +22,9 @@ class PostWall extends React.Component {
           data={posts}
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => {
-            return <PostItem post={item.post} navigation={navigation} />;
+            return <PostItem post={item.post} video={item.video} navigation={navigation} />;
           }}
         />
-
         <AddButton />
       </View>
     );
@@ -33,6 +32,7 @@ class PostWall extends React.Component {
 }
 
 const mstp = (state) => {
+  
   return {
     posts: state.posts,
   };

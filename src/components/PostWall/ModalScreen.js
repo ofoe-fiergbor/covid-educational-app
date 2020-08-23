@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, Modal, ScrollView } from "react-native";
 import { connect } from "react-redux";
 import { closeModal } from "../../Redux/Action/modalAction";
 import { AntDesign } from "@expo/vector-icons";
-import PostForm from "./PostForm";
+import PostInputForm from "./PostInputForm";
 
 class ModalScreen extends Component {
   render() {
@@ -20,7 +20,7 @@ class ModalScreen extends Component {
               onPress={() => this.props.closeModal()}
             />
             <View style={styles.modalBackground}>
-              <PostForm />
+              <PostInputForm />
             </View>
           </View>
         </Modal>

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     position: "absolute",
     bottom: 20,
-    right: 30,
+    right: 15,
     justifyContent: "center",
     alignItems: "center",
     elevation: 29
