@@ -6,18 +6,23 @@ import {
   Image,
   Dimensions,
   TouchableWithoutFeedback,
+  Linking,
+  Share,
 } from "react-native";
 import ButtonOne from "./Buttons";
 import { Ionicons } from "@expo/vector-icons";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
+
+
 export default class NewsWallTemplate extends Component {
   render() {
     return (
       <View style={styles.container}>
         {/* News List View */}
-        <TouchableWithoutFeedback onPress={() => alert("======>>>Linked")}>
+        <TouchableWithoutFeedback
+          onPress={() => Linking.openURL(this.props.url)}
+        >
           <View
             style={{
               width: width - 30,
@@ -49,7 +54,7 @@ export default class NewsWallTemplate extends Component {
               </Text>
 
               <Ionicons
-                onPress={() => alert("<<<<<<<<<<<Sharing>>>>>>>>>>>>")}
+                onPress={() => this.props.article(this.props.url)}
                 name="md-share-alt"
                 size={30}
                 color="#fff"
@@ -68,8 +73,8 @@ export default class NewsWallTemplate extends Component {
                   padding: 10,
                   color: "#fff",
                   fontSize: 30,
-                  fontWeight: 'bold',
-                  textTransform: 'capitalize'
+                  fontWeight: "bold",
+                  textTransform: "capitalize",
                 }}
               >
                 {this.props.topic}
@@ -90,7 +95,7 @@ export default class NewsWallTemplate extends Component {
         >
           <View>
             <Text
-              onPress={() => alert("======>>>Linked")}
+              onPress={() => Linking.openURL(this.props.url)}
               numberOfLines={3}
               style={{
                 fontSize: 14,

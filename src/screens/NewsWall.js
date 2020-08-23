@@ -5,6 +5,7 @@ import {
   View,
   FlatList,
   ActivityIndicator,
+  Share,
 } from "react-native";
 import NewsWallTemplate from "../components/NewsWallTemplate";
 console.disableYellowBox = true;
@@ -31,12 +32,12 @@ class NewsWall extends Component {
         },
       }
     )
-      .then((res)=>res.json())
+      .then((res) => res.json())
       .then((response) => {
         this.setState({
-          news:response.articles,
-          loading: false
-        })
+          news: response.articles,
+          loading: false,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -53,6 +54,17 @@ class NewsWall extends Component {
   componentDidMount() {
     this.fetchNews();
   }
+
+
+sharearticle = async (article) => {
+    try {
+      await Share.share({
+        message: "Kindly check this article out " + article,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   render() {
     if (this.state.loading) {
       return (
@@ -82,6 +94,7 @@ class NewsWall extends Component {
                 summary={item.summary}
                 source={item.author}
                 topic={item.topic}
+                article={this.sharearticle}
               />
             );
           }}
