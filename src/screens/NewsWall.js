@@ -20,14 +20,35 @@ class NewsWall extends Component {
   }
   //Fetch News
   fetchNews = () => {
-    fetch("https://cryptic-ravine-96718.herokuapp.com")
-      .then((res) => res.json())
+    fetch(
+      "https://covid-19-news.p.rapidapi.com/v1/covid?lang=en&media=True&q=covid-19",
+      {
+        method: "GET",
+        headers: {
+          "x-rapidapi-host": "covid-19-news.p.rapidapi.com",
+          "x-rapidapi-key":
+            "4797fbff69msh206c52ea361382fp183ae2jsnff7bdaf2dd33",
+        },
+      }
+    )
+      .then((res)=>res.json())
       .then((response) => {
         this.setState({
-          news: response.news,
-          loading: false,
-        });
+          news:response.articles,
+          loading: false
+        })
+      })
+      .catch((err) => {
+        console.log(err);
       });
+    // fetch("https://cryptic-ravine-96718.herokuapp.com")
+    //   .then((res) => res.json())
+    //   .then((response) => {
+    //     this.setState({
+    //       news: response.news,
+    //       loading: false,
+    //     });
+    //   });
   };
   componentDidMount() {
     this.fetchNews();
@@ -40,7 +61,7 @@ class NewsWall extends Component {
             flex: 1,
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "#0b1387",
+            backgroundColor: "skyblue",
             opacity: 0.2,
           }}
         >
@@ -53,14 +74,18 @@ class NewsWall extends Component {
           data={this.state.news}
           renderItem={({ item }) => {
             return (
-                <NewsWallTemplate
-                  image={item.img}
-                  url={item.link}
-                  title={item.title}
-                />
+              <NewsWallTemplate
+                image={item.media}
+                url={item.link}
+                title={item.title}
+                date={item.published_date}
+                summary={item.summary}
+                source={item.author}
+                topic={item.topic}
+              />
             );
           }}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item._id}
         />
       );
     }

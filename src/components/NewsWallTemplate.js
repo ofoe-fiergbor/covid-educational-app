@@ -23,15 +23,14 @@ export default class NewsWallTemplate extends Component {
               width: width - 30,
               height: 200,
               backgroundColor: "#fff",
-              marginBottom: 15,
               alignSelf: "center",
-              borderRadius: 15,
+              borderTopLeftRadius: 20,
               elevation: 20,
             }}
           >
             <Image
               source={{ uri: this.props.image }}
-              style={[StyleSheet.absoluteFill, { borderRadius: 15 }]}
+              style={[StyleSheet.absoluteFill, { borderTopLeftRadius: 20 }]}
             />
             <View style={styles.gradient}>
               <Text
@@ -50,9 +49,9 @@ export default class NewsWallTemplate extends Component {
               </Text>
 
               <Ionicons
-              onPress={() => alert("<<<<<<<<<<<Sharing>>>>>>>>>>>>")}
+                onPress={() => alert("<<<<<<<<<<<Sharing>>>>>>>>>>>>")}
                 name="md-share-alt"
-                size={25}
+                size={30}
                 color="#fff"
                 style={{
                   position: "absolute",
@@ -61,9 +60,66 @@ export default class NewsWallTemplate extends Component {
                   padding: 10,
                 }}
               />
+              <Text
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  padding: 10,
+                  color: "#fff",
+                  fontSize: 30,
+                  fontWeight: 'bold',
+                  textTransform: 'capitalize'
+                }}
+              >
+                {this.props.topic}
+              </Text>
             </View>
           </View>
         </TouchableWithoutFeedback>
+        <View
+          style={{
+            width: width - 30,
+            height: 100,
+            alignSelf: "center",
+            elevation: 20,
+            backgroundColor: "#ebedf2",
+            marginBottom: 15,
+            borderBottomRightRadius: 20,
+          }}
+        >
+          <View>
+            <Text
+              onPress={() => alert("======>>>Linked")}
+              numberOfLines={3}
+              style={{
+                fontSize: 14,
+                padding: 10,
+                color: "#000",
+                fontWeight: "bold",
+              }}
+            >
+              {this.props.summary}
+            </Text>
+            <View
+              style={{
+                marginHorizontal: 10,
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <Text style={{ fontWeight: "bold", color: "grey", flex: 6 }}>
+                {this.props.date}
+              </Text>
+              <Text
+                numberOfLines={1}
+                style={{ fontWeight: "bold", color: "grey", flex: 4 }}
+              >
+                Author:{this.props.source}
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
     );
   }
@@ -79,6 +135,6 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "#000",
     opacity: 0.7,
-    borderRadius: 15,
+    borderTopLeftRadius: 20,
   },
 });
