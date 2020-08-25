@@ -49,7 +49,9 @@ export default class PostItem extends Component {
             </TouchableOpacity>
           </View>
           <View>
-            <Text>{post}</Text>
+            <Text
+            numberOfLines={4}
+            >{post}</Text>
             {video && (
               <View style={{ height: 200 }}>
                 <Video
