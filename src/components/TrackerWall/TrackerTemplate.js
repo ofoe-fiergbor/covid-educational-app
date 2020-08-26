@@ -1,146 +1,176 @@
-import React, { Component } from "react";
+import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default class TrackerTemplate extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.top__header}>
-          <View style={{ margin: 30 }}>
-            <Text
-              style={{
-                color: "#fff",
-                fontSize: 25,
-                fontWeight: "bold",
-                marginBottom: 10,
-              }}
-            >
-              Good Day
-            </Text>
-            <Text
-              style={{
-                color: "#fff",
-                fontWeight: "bold",
-                fontSize: 18,
-                marginBottom: 10,
-              }}
-            >
-              All Covid -19 Cases Update
-            </Text>
-            <Text style={{ color: "#eee", fontWeight:'bold' }}>Ghana</Text>
+export default function TrackerTemplate(props) {
+  const {
+    recoveries,
+    fatalities,
+    date,
+    time,
+    newCases,
+    confirmedCases,
+  } = props.coronaData;
+  return (
+    <View style={styles.container}>
+      <View style={styles.top__header}>
+        <View style={{ margin: 30 }}>
+          <Text
+            style={{
+              color: "#fff",
+              fontSize: 25,
+              fontWeight: "bold",
+              marginBottom: 10,
+            }}
+          >
+            Good Day
+          </Text>
+          <Text
+            style={{
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: 18,
+              marginBottom: 10,
+            }}
+          >
+            All Covid -19 Cases Update
+          </Text>
+          <Text style={{ color: "#eee", fontWeight: "bold" }}>Ghana</Text>
+        </View>
+        <View style={{ flexDirection: "column" }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginHorizontal: 20,
+            }}
+          >
+            <View style={styles.cards}>
+              <AntDesign
+                name="adduser"
+                size={25}
+                color="#fff"
+                style={{
+                  backgroundColor: "#ffab2e",
+                  justifyContent: "flex-start",
+                  width: 35,
+                  padding: 5,
+                  elevation: 5,
+                  borderRadius: 5,
+                  marginBottom: 7,
+                }}
+              />
+              <Text
+                style={{ color: "#a9b6ba", elevation: 10, marginBottom: 5 }}
+              >
+                New Cases
+              </Text>
+              <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
+               {newCases}
+              </Text>
+            </View>
+            <View style={styles.cards}>
+              <AntDesign
+                name="addusergroup"
+                size={25}
+                color="#fff"
+                style={{
+                  backgroundColor: "#1fd0e0",
+                  justifyContent: "flex-start",
+                  width: 35,
+                  padding: 5,
+                  elevation: 5,
+                  borderRadius: 5,
+                  marginBottom: 7,
+                }}
+              />
+              <Text
+                style={{ color: "#a9b6ba", elevation: 10, marginBottom: 5 }}
+              >
+                Recovered
+              </Text>
+              <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
+                {recoveries}
+              </Text>
+            </View>
           </View>
-          <View style={{ flexDirection: "column" }}>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginHorizontal: 20,
-              }}
-            >
-              <View style={styles.cards}>
-                  <AntDesign
-                    name="adduser"
-                    size={25}
-                    color="#fff"
-                    style={{
-                      backgroundColor: "#ffab2e",
-                      justifyContent: "flex-start",
-                      width: 35,
-                      padding: 5,
-                      elevation: 5,
-                      borderRadius: 5,
-                      marginBottom: 7
-                    }}
-                  />
-                <Text style={{color: "#a9b6ba", elevation: 10, marginBottom: 5}}>New Cases</Text>
-                <Text style={{color: '#000', fontWeight: 'bold', fontSize: 17,}}>+2349</Text>
-              </View>
-              <View style={styles.cards}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginHorizontal: 20,
+            }}
+          >
+            <View style={styles.cards}>
               <AntDesign
-                    name="addusergroup"
-                    size={25}
-                    color="#fff"
-                    style={{
-                      backgroundColor: "#1fd0e0",
-                      justifyContent: "flex-start",
-                      width: 35,
-                      padding: 5,
-                      elevation: 5,
-                      borderRadius: 5,
-                      marginBottom: 7
-                    }}
-                  />
-                <Text style={{color: "#a9b6ba", elevation: 10, marginBottom: 5}}>Recovered </Text>
-                <Text style={{color: '#000', fontWeight: 'bold', fontSize: 17,}}>+2349</Text>
-              </View>
+                name="deleteuser"
+                size={25}
+                color="#fff"
+                style={{
+                  backgroundColor: "#ff0f0f",
+                  justifyContent: "flex-start",
+                  width: 35,
+                  padding: 5,
+                  elevation: 5,
+                  borderRadius: 5,
+                  marginBottom: 7,
+                }}
+              />
+              <Text
+                style={{ color: "#a9b6ba", elevation: 10, marginBottom: 5 }}
+              >
+                Infected{" "}
+              </Text>
+              <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
+                {confirmedCases}
+              </Text>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                marginHorizontal: 20,
-              }}
-            >
-              <View style={styles.cards}>
+            <View style={styles.cards}>
               <AntDesign
-                    name="deleteuser"
-                    size={25}
-                    color="#fff"
-                    style={{
-                      backgroundColor: "#ff0f0f",
-                      justifyContent: "flex-start",
-                      width: 35,
-                      padding: 5,
-                      elevation: 5,
-                      borderRadius: 5,
-                      marginBottom: 7
-                    }}
-                  />
-                <Text style={{color: "#a9b6ba", elevation: 10, marginBottom: 5}}>Infected </Text>
-                <Text style={{color: '#000', fontWeight: 'bold', fontSize: 17,}}>+2349</Text>
-              </View>
-              <View style={styles.cards}>
-              <AntDesign
-                    name="deleteusergroup"
-                    size={25}
-                    color="#fff"
-                    style={{
-                      backgroundColor: "#000",
-                      justifyContent: "flex-start",
-                      width: 35,
-                      padding: 5,
-                      elevation: 5,
-                      borderRadius: 5,
-                      marginBottom: 7
-                    }}
-                  />
-                <Text style={{color: "#a9b6ba", elevation: 10, marginBottom: 5}}>Deaths </Text>
-                <Text style={{color: '#000', fontWeight: 'bold', fontSize: 17,}}>+2349</Text>
-              </View>
+                name="deleteusergroup"
+                size={25}
+                color="#fff"
+                style={{
+                  backgroundColor: "#000",
+                  justifyContent: "flex-start",
+                  width: 35,
+                  padding: 5,
+                  elevation: 5,
+                  borderRadius: 5,
+                  marginBottom: 7,
+                }}
+              />
+              <Text
+                style={{ color: "#a9b6ba", elevation: 10, marginBottom: 5 }}
+              >
+                Deaths{" "}
+              </Text>
+              <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
+                {fatalities}
+              </Text>
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                elevation: 5,
-                backgroundColor: "#d8e1eb",
-                height: 50,
-                alignItems: "center",
-                marginHorizontal: 20,
-                borderRadius: 10,
-                padding: 10,
-              }}
-            >
-              <Text>As at:</Text>
-              <Text>Time:</Text>
-            </View>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              elevation: 5,
+              backgroundColor: "#d8e1eb",
+              height: 50,
+              alignItems: "center",
+              marginHorizontal: 20,
+              borderRadius: 10,
+              padding: 10,
+            }}
+          >
+            <Text>As at: {date}</Text>
+            <Text>Time: {time}</Text>
           </View>
         </View>
-        <View style={styles.bottom__details}></View>
       </View>
-    );
-  }
+      <View style={styles.bottom__details}></View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
