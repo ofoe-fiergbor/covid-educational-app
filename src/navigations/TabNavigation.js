@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo, AntDesign } from "@expo/vector-icons";
 import PostWall from "../screens/PostWall";
 import NewsWall from "../screens/NewsWall";
-import Tracker from "../screens/Tracker";
+import TrackerWall from "../screens/TrackerWall";
 import SettingScreen from "../screens/Settings";
 
 const BottomTabs = createBottomTabNavigator();
@@ -46,7 +46,7 @@ const TabNavigation = () => {
       />
       <BottomTabs.Screen
         name="tracker"
-        component={Tracker}
+        component={TrackerWall}
         options={{
           tabBarLabel: "Tracker",
           tabBarIcon: ({ color }) => (
