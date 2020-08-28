@@ -7,51 +7,97 @@ import {
   TextInput,
   ScrollView,
 } from "react-native";
+import { connect } from "react-redux";
+import { registerUser } from "../Redux/Action/AuthActions";
+class Register extends React.Component {
+  constructor(props) {
+    super(props);
 
-const Register = ({ navigation }) => {
-  return (
-    <ScrollView>
-      <View style={styles.container}>
-        <Text style={{ alignSelf: "center", fontSize: 30 }}>Sign Up</Text>
-        <View style={styles.formContainer}>
-          <TextInput placeholder="First Name" style={styles.textField} returnKeyType="next"/>
-          <TextInput placeholder="Last Name" style={styles.textField} />
-          <TextInput placeholder="Email" style={styles.textField} keyboardType="email-address" />
-          <TextInput
-            placeholder="Password"
-            style={styles.textField}
-            secureTextEntry={true}
-          />
-        </View>
-        <TouchableOpacity style={styles.registerBtn}>
-          <Text style={{ fontSize: 15 }}>Register</Text>
-        </TouchableOpacity>
-        <Text style={{ fontSize: 15, alignSelf: "center" }}>or</Text>
-        <TouchableOpacity
-          style={{ ...styles.registerBtn, backgroundColor: "red" }}
-        >
-          <Text style={{ fontSize: 15, color: "#fff" }}>
-            Sign up with Google
-          </Text>
-        </TouchableOpacity>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            marginTop: 10,
-          }}
-        >
-          <Text style={{ marginRight: 10 }}>Already have an account?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("login")}>
-            <Text>Login.</Text>
+    this.state = {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    };
+  }
+
+  handleTextChange = (name, value) =>{
+    this.setState({
+      [name]: value,
+    })
+  }
+  handleSubmit = () => {
+    const {firstName, lastName, email, password} = this.state
+
+    this.props.registerUser(firstName, lastName, email, password);
+  };
+
+  render() {
+    const { navigation } = this.props;
+    return (
+      <ScrollView>
+        <View style={styles.container}>
+          <Text style={{ alignSelf: "center", fontSize: 30 }}>Sign Up</Text>
+          <View style={styles.formContainer}>
+            <TextInput
+              placeholder="First Name"
+              style={styles.textField}
+              returnKeyType="next"
+              value={this.state.firstName}
+            
+              onChangeText={(text) => this.handleTextChange("firstName", text)}
+            />
+            <TextInput
+              placeholder="Last Name"
+              style={styles.textField}
+              value={this.state.lastName}
+              onChangeText={(text) => this.handleTextChange("lastName", text)}
+            />
+            <TextInput
+              placeholder="Email"
+              style={styles.textField}
+              keyboardType="email-address"
+              value={this.state.email}
+              onChangeText={(text) => this.handleTextChange("email", text)}
+            />
+            <TextInput
+              placeholder="Password"
+              style={styles.textField}
+              secureTextEntry={true}
+              value={this.state.password}
+              onChangeText={(text) => this.handleTextChange("password", text)}
+            />
+          </View>
+          <TouchableOpacity style={styles.registerBtn} onPress={this.handleSubmit}>
+            <Text style={{ fontSize: 15 }}>Register</Text>
           </TouchableOpacity>
+          {/* <Text style={{ fontSize: 15, alignSelf: "center" }}>or</Text>
+          <TouchableOpacity
+            style={{ ...styles.registerBtn, backgroundColor: "red" }}
+          >
+            <Text style={{ fontSize: 15, color: "#fff" }}>
+              Sign up with Google
+            </Text>
+          </TouchableOpacity> */}
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              marginTop: 10,
+            }}
+          >
+            <Text style={{ marginRight: 10 }}>Already have an account?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("login")}>
+              <Text style={{color:'navy'}}>Login</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </ScrollView>
-  );
-};
+      </ScrollView>
+    );
+  }
+}
 
-export default Register;
+export default connect(null, { registerUser })(Register);
 
 const styles = StyleSheet.create({
   container: {

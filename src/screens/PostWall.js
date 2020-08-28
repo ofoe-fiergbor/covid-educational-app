@@ -10,8 +10,13 @@ import { connect } from "react-redux";
 import AddButton from "../components/PostWall/AddButton";
 import ModalScreen from "../components/PostWall/ModalScreen";
 import PostItem from "../components/PostWall/PostItem";
+import {getAllPosts} from '../Redux/Action/action'
 
 class PostWall extends React.Component {
+  componentDidMount() {
+    this.props.getAllPosts()
+  }
+  
   render() {
     let { posts, navigation } = this.props;
     return (
@@ -32,12 +37,12 @@ class PostWall extends React.Component {
 }
 
 const mstp = (state) => {
-  
+  // console.log(state.posts.posts)
   return {
-    posts: state.posts,
+    posts: state.posts.posts,
   };
 };
-export default connect(mstp)(PostWall);
+export default connect(mstp, {getAllPosts})(PostWall);
 
 const styles = StyleSheet.create({
   container: {

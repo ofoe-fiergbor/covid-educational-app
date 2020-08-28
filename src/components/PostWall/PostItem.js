@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Share, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import { Text, StyleSheet, View, Share, TouchableOpacity } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { Video } from "expo-av";
 import { Dimensions } from "react-native";
+import Hyperlink from 'react-native-hyperlink'
+
+
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -49,9 +52,9 @@ export default class PostItem extends Component {
             </TouchableOpacity>
           </View>
           <View>
-            <Text
-            numberOfLines={4}
-            >{post}</Text>
+            <Hyperlink linkStyle={ { color: '#2980b9' } }>
+            <Text numberOfLines={4}>{post}</Text>
+            </Hyperlink>
             {video && (
               <View style={{ height: 200 }}>
                 <Video

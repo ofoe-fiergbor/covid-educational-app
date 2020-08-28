@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, TouchableOpacity, Share } from "react-native";
+import { Text, StyleSheet, View, TouchableOpacity, Share, Linking } from "react-native";
 import { Video } from "expo-av";
 import { Dimensions } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
+import Hyperlink from 'react-native-hyperlink'
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -46,7 +47,9 @@ export default class PostDetail extends Component {
             <Feather name="share" size={21} color="black" />
           </TouchableOpacity>
         </View>
-        <Text style={{marginVertical:20, marginHorizontal: 8}}> {post} </Text>
+        <Hyperlink linkStyle={ { color: '#2980b9' } } linkDefault={ true } >
+        <Text style={{marginVertical:20, marginHorizontal: 20}}> {post} </Text>
+        </Hyperlink>
         {video && (
           <View style={{ height: 300, width: windowWidth }}>
             <Video
