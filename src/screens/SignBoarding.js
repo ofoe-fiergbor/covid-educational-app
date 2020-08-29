@@ -22,10 +22,10 @@ export default class SignBoarding extends Component {
           <Image source={signupimage} style={{ height: 300, width: 150 }} />
         </View>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-          <Image
+          {/* <Image
             source={blob3}
             style={{ position: "absolute", left: 0, width: 190, height: 300 }}
-          />
+          /> */}
           <Text
             style={{
               fontSize: 30,
@@ -119,7 +119,7 @@ export default class SignBoarding extends Component {
               borderBottomRightRadius: 50,
             }}
           >
-            <Text>Skip</Text>
+            <Text style={{color: 'grey', fontWeight: 'bold', fontSize: 20,}}>Skip</Text>
           </TouchableOpacity>
           <TouchableOpacity
           style={{
@@ -129,7 +129,7 @@ export default class SignBoarding extends Component {
               borderTopLeftRadius: 50,
               borderBottomLeftRadius: 50,
             }}>
-            <Text>Next</Text>
+            <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20,}}>Next</Text>
           </TouchableOpacity>
         </View>
       </View>
