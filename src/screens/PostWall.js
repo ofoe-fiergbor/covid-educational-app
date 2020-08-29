@@ -42,6 +42,7 @@ class PostWall extends React.Component {
 }
 
 const mstp = (state) => {
+  
   return {
     posts: state.posts.posts,
     loading: state.posts.loading,
