@@ -7,7 +7,7 @@ const Landing = ({navigation}) => {
             <Text>LANDING PAGE FOR</Text>
             <Text>COVID 19 EDUC PLATFORM</Text>
             <TouchableOpacity style={styles.btn}
-            onPress={()=> navigation.navigate('welcome')}>
+            onPress={()=> navigation.navigate('signboard')}>
                 <Text>Get Started</Text>
             </TouchableOpacity>
         </View>

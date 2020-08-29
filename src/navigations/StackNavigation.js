@@ -10,6 +10,7 @@ import TabNavigation from "./TabNavigation";
 import DrawerNavigation from "./DrawerNavigation";
 import PostDetail from "../components/PostWall/PostDetail";
 import { connect } from "react-redux";
+import SignBoarding from "../screens/SignBoarding";
 
 const Stack = createStackNavigator();
 
@@ -60,6 +61,11 @@ const StackNavigation = ({ navigate, auth }) => {
           <Stack.Screen
             name="welcome"
             component={Welcome}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="signboard"
+            component={SignBoarding}
             options={{ headerShown: false }}
           />
           <Stack.Screen
