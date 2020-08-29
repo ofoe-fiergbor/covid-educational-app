@@ -26,7 +26,7 @@ function DrawerEntity(props) {
                 size={50}
               />
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
-                <Title style={styles.title}>Solomon Tetteh</Title>
+                <Title style={styles.title}>{props.state.auth.user.user.providerData[0].email}</Title>
                 {/* <Caption style={styles.caption}>@j_doe</Caption> */}
               </View>
             </View>
@@ -88,7 +88,7 @@ function DrawerEntity(props) {
   );
 }
 const mstp = state =>{
-  // console.log(state.auth.user.user.providerData)
+  console.log(state.auth.user.user.providerData[0].email)
   return{
     state
   }

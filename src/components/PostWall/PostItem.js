@@ -53,7 +53,7 @@ export default class PostItem extends Component {
         </View>
         <View style={styles.postDetailsContainer}>
           <View style={styles.postDetailsHeader}>
-            <Text style={styles.userName}>Solomon Tetteh</Text>
+            <Text style={styles.userName}>Anonymous User</Text>
             {/* <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignItems:'center'}}>
               <Feather name="share" size={21} color="black" />
             </TouchableOpacity> */}
