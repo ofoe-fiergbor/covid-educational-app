@@ -1,11 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import {
-  Avatar,
-  Title,
-  Caption,
-  Drawer,
-} from "react-native-paper";
+import { Avatar, Title, Caption, Drawer } from "react-native-paper";
 import { signOut } from "../Redux/Action/AuthActions";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 
@@ -26,7 +21,11 @@ function DrawerEntity(props) {
                 size={50}
               />
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
-                <Title style={styles.title}>Solomon Tetteh</Title>
+                {(props.state.auth.isLoggedIn) ? (
+                  <Title style={styles.title}>
+                    {props.state.auth.user.user.providerData[0].email}
+                  </Title>
+                ): null}
                 {/* <Caption style={styles.caption}>@j_doe</Caption> */}
               </View>
             </View>
@@ -87,12 +86,12 @@ function DrawerEntity(props) {
     </View>
   );
 }
-const mstp = state =>{
+const mstp = (state) => {
   // console.log(state.auth.user.user.providerData[0].email)
-  return{
-    state
-  }
-}
+  return {
+    state,
+  };
+};
 export default connect(mstp, { signOut })(DrawerEntity);
 
 const styles = StyleSheet.create({

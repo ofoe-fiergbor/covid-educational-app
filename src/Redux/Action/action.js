@@ -1,7 +1,7 @@
 import firebase from "../../Firebase/firebase";
 // import { firestore } from "firebase";
 
-export const addNewPost = (newPost, Userid) => {
+export const addNewPost = (newPost, Userid, userEmail) => {
   return async (dispatch) => {
     try {
 
@@ -12,6 +12,7 @@ export const addNewPost = (newPost, Userid) => {
           ...newPost,
           // firstName:'',
           uid: Userid,
+          userEmail: userEmail,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
     } catch (error) {

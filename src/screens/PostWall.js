@@ -30,6 +30,7 @@ class PostWall extends React.Component {
               <PostItem
                 post={item.post}
                 video={item.video}
+                userEmail={item.userEmail}
                 navigation={navigation}
               />
             );
@@ -42,10 +43,11 @@ class PostWall extends React.Component {
 }
 
 const mstp = (state) => {
-  
+  // console.log(state.auth.user.user.providerData[0].email)
   return {
     posts: state.posts.posts,
     loading: state.posts.loading,
+    auth: state.auth
   };
 };
 export default connect(mstp, { getAllPosts })(PostWall);
