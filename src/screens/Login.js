@@ -42,7 +42,7 @@ class Login extends React.Component {
             style={{ alignItems: "center", fontSize: 30, marginVertical: 80 }}
           >
             <Text
-              style={{ fontSize: 45, fontWeight: "bold", letterSpacing: 2 }}
+              style={{ fontSize: 55, fontWeight: "bold", letterSpacing: 2 }}
             >
               Hello
             </Text>
@@ -67,6 +67,7 @@ class Login extends React.Component {
               <View style={styles.textField}>
                 <Entypo
                   name="email"
+                  keyboardType="email-address"
                   size={20}
                   color="black"
                   style={{ marginRight: 30, elevation: 20 }}
