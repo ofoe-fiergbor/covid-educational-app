@@ -7,15 +7,18 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class SignBoarding extends Component {
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <View
           style={{
             flexDirection: "row",
             paddingHorizontal: 20,
-            marginVertical: 20,
+            paddingVertical: 20,
             justifyContent: "space-between",
             backgroundColor: "#f0fafc",
+            // elevation: 10,
+            marginBottom: 10,
           }}
         >
           <Image source={loginimage} style={{ height: 300, width: 150 }} />
@@ -109,27 +112,42 @@ export default class SignBoarding extends Component {
             ></View>
           </View>
         </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" ,marginTop: 30,}}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginTop: 30,
+          }}
+        >
           <TouchableOpacity
+            onPress={() => navigation.navigate("login")}
             style={{
               backgroundColor: "#dde2eb",
-              paddingVertical: 20,
+              paddingVertical: 15,
               paddingHorizontal: 35,
               borderTopRightRadius: 50,
               borderBottomRightRadius: 50,
+              elevation: 10,
             }}
           >
-            <Text style={{color: 'grey', fontWeight: 'bold', fontSize: 20,}}>Skip</Text>
+            <Text style={{ color: "grey", fontWeight: "bold", fontSize: 18 }}>
+              Skip
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
-          style={{
+            onPress={() => navigation.navigate("drawerboard")}
+            style={{
               backgroundColor: "skyblue",
-              paddingVertical: 20,
+              paddingVertical: 15,
               paddingHorizontal: 35,
               borderTopLeftRadius: 50,
               borderBottomLeftRadius: 50,
-            }}>
-            <Text style={{color: 'white', fontWeight: 'bold', fontSize: 20,}}>Next</Text>
+              elevation: 10,
+            }}
+          >
+            <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
+              Next
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
