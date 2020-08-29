@@ -6,7 +6,12 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  Image,
 } from "react-native";
+import blob1 from "../img/blob1.png";
+import blob2 from "../img/blob2.png";
+import { Entypo, FontAwesome5, Feather } from "@expo/vector-icons";
+
 import { connect } from "react-redux";
 import { registerUser } from "../Redux/Action/AuthActions";
 class Register extends React.Component {
@@ -21,13 +26,13 @@ class Register extends React.Component {
     };
   }
 
-  handleTextChange = (name, value) =>{
+  handleTextChange = (name, value) => {
     this.setState({
       [name]: value,
-    })
-  }
+    });
+  };
   handleSubmit = () => {
-    const {firstName, lastName, email, password} = this.state
+    const { firstName, lastName, email, password } = this.state;
 
     this.props.registerUser(firstName, lastName, email, password);
   };
@@ -37,39 +42,92 @@ class Register extends React.Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Text style={{ alignSelf: "center", fontSize: 30 }}>Sign Up</Text>
+          <Image source={blob1} style={styles.blob__image} />
+          <Image source={blob2} style={styles.blob__image1} />
+          <Text
+            style={{ alignSelf: "center", fontSize: 30, marginVertical: 50, fontWeight: 'bold', }}
+          >
+            Create Account
+          </Text>
           <View style={styles.formContainer}>
-            <TextInput
-              placeholder="First Name"
-              style={styles.textField}
-              returnKeyType="next"
-              value={this.state.firstName}
-            
-              onChangeText={(text) => this.handleTextChange("firstName", text)}
-            />
-            <TextInput
-              placeholder="Last Name"
-              style={styles.textField}
-              value={this.state.lastName}
-              onChangeText={(text) => this.handleTextChange("lastName", text)}
-            />
-            <TextInput
-              placeholder="Email"
-              style={styles.textField}
-              keyboardType="email-address"
-              value={this.state.email}
-              onChangeText={(text) => this.handleTextChange("email", text)}
-            />
-            <TextInput
-              placeholder="Password"
-              style={styles.textField}
-              secureTextEntry={true}
-              value={this.state.password}
-              onChangeText={(text) => this.handleTextChange("password", text)}
-            />
+            <View style={styles.textField}>
+              <FontAwesome5
+                name="user-alt"
+                size={20}
+                color="black"
+                style={{ marginRight: 30, elevation: 20 }}
+              />
+              <TextInput
+                placeholder="First Name"
+                returnKeyType="next"
+                value={this.state.firstName}
+                onChangeText={(text) =>
+                  this.handleTextChange("firstName", text)
+                }
+              />
+            </View>
+            <View style={styles.textField}>
+              <FontAwesome5
+                name="user-alt"
+                size={20}
+                color="black"
+                style={{ marginRight: 30, elevation: 20 }}
+              />
+              <TextInput
+                placeholder="Last Name"
+                value={this.state.lastName}
+                onChangeText={(text) => this.handleTextChange("lastName", text)}
+              />
+            </View>
+            <View style={styles.textField}>
+              <Entypo
+                name="email"
+                size={20}
+                color="black"
+                style={{ marginRight: 30, elevation: 20 }}
+              />
+              <TextInput
+                placeholder="Email"
+                keyboardType="email-address"
+                value={this.state.email}
+                onChangeText={(text) => this.handleTextChange("email", text)}
+              />
+            </View>
+            <View style={styles.textField}>
+              <Entypo
+                name="lock"
+                size={20}
+                color="black"
+                style={{ marginRight: 30, elevation: 20 }}
+              />
+              <TextInput
+                placeholder="Password"
+                secureTextEntry={true}
+                value={this.state.password}
+                onChangeText={(text) => this.handleTextChange("password", text)}
+              />
+            </View>
           </View>
-          <TouchableOpacity style={styles.registerBtn} onPress={this.handleSubmit}>
-            <Text style={{ fontSize: 15 }}>Register</Text>
+          <TouchableOpacity
+            style={styles.registerBtn}
+            onPress={this.handleSubmit}
+          >
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: "bold",
+                color: "#fff",
+                marginRight: 10,
+              }}
+            >
+              Register
+            </Text>
+            <Feather
+              name="arrow-right"
+              size={25}
+              color="#fff"
+              style={{ fontWeight: "bold" }}
+            />
           </TouchableOpacity>
           {/* <Text style={{ fontSize: 15, alignSelf: "center" }}>or</Text>
           <TouchableOpacity
@@ -88,7 +146,7 @@ class Register extends React.Component {
           >
             <Text style={{ marginRight: 10 }}>Already have an account?</Text>
             <TouchableOpacity onPress={() => navigation.navigate("login")}>
-              <Text style={{color:'navy'}}>Login</Text>
+              <Text style={{ color: "skyblue" }}>Login</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -102,7 +160,6 @@ export default connect(null, { registerUser })(Register);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 100,
   },
   btn: {
     marginVertical: 50,
@@ -113,22 +170,47 @@ const styles = StyleSheet.create({
     height: 40,
   },
   formContainer: {
-    paddingHorizontal: 50,
-    marginTop: 20,
+    paddingHorizontal: 15,
   },
   textField: {
-    borderBottomWidth: 0.5,
     lineHeight: 30,
-    marginVertical: 15,
-    fontSize: 20,
+    marginVertical: 12,
+    fontSize: 18,
+    backgroundColor: "#fff",
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    elevation: 10,
+    borderRadius: 50,
+    flexDirection: "row",
+    alignItems: "center",
   },
   registerBtn: {
-    marginVertical: 5,
+    marginTop: 70,
+    marginBottom: 30,
+    paddingHorizontal: 35,
+    paddingVertical: 10,
+    marginHorizontal: 15,
+    alignSelf: "flex-end",
+    justifyContent: "flex-end",
+    flexDirection: "row",
     backgroundColor: "skyblue",
-    width: 200,
-    height: 40,
-    alignSelf: "center",
+    padding: 10,
+    borderRadius: 50,
     alignItems: "center",
-    justifyContent: "center",
+    elevation: 20,
+  },
+  blob__image: {
+    position: "absolute",
+    right: 0,
+    top: 0,
+    width: 200,
+    height: 350,
+  },
+  blob__image1: {
+    position: "absolute",
+    left: 0,
+    bottom: 0,
+    width: 200,
+    height: 350,
   },
 });
