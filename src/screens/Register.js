@@ -45,7 +45,7 @@ class Register extends React.Component {
           <Image source={blob1} style={styles.blob__image} />
           <Image source={blob2} style={styles.blob__image1} />
           <Text
-            style={{ alignSelf: "center", fontSize: 30, marginVertical: 50, fontWeight: 'bold' }}
+            style={{ alignSelf: "center", fontSize: 30, marginVertical: 50, fontWeight: 'bold', }}
           >
             Create Account
           </Text>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     marginTop: 70,
     marginBottom: 30,
     paddingHorizontal: 35,
-    paddingVertical: 15,
+    paddingVertical: 10,
     marginHorizontal: 15,
     alignSelf: "flex-end",
     justifyContent: "flex-end",

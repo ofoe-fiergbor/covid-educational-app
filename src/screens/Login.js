@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   registerBtn: {
     marginBottom: 70,
     paddingHorizontal: 35,
-    paddingVertical: 15,
+    paddingVertical: 10,
     alignSelf: "flex-end",
     justifyContent: "flex-end",
     flexDirection: "row",
