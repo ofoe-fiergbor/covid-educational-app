@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Share, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, View, Share, TouchableWithoutFeedbackComponent, TouchableOpacity } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { Video } from "expo-av";
 import { Dimensions } from "react-native";
@@ -47,9 +47,9 @@ export default class PostItem extends Component {
         <View style={styles.postDetailsContainer}>
           <View style={styles.postDetailsHeader}>
             <Text style={styles.userName}>User Name</Text>
-            <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignItems:'center'}}>
+            {/* <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignItems:'center'}}>
               <Feather name="share" size={21} color="black" />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </View>
           <View>
             <Hyperlink linkStyle={ { color: '#2980b9' } }>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e8f2ff",
     flexDirection: "row",
     paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
     elevation: 5,
   },
   profilePicContainer: {

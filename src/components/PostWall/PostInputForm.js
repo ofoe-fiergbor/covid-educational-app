@@ -66,8 +66,8 @@ class PostInputForm extends Component {
       return null
     }
 
-    // console.log(this.state);
-    this.props.addNewPost(this.state);
+    const uid = this.props.user.user.uid
+    this.props.addNewPost(this.state, uid);
     this.props.closeModal();
   };
 
