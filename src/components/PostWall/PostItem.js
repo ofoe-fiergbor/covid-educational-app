@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Share, TouchableWithoutFeedbackComponent, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, View, Share, TouchableOpacity } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
+import {Avatar} from 'react-native-paper'
 import { Video } from "expo-av";
 import { Dimensions } from "react-native";
 import Hyperlink from 'react-native-hyperlink'
@@ -32,21 +33,27 @@ export default class PostItem extends Component {
     }
   };
   render() {
-    const { post, navigation, video } = this.props;
+    const { post, navigation, video, userEmail } = this.props;
     // console.log(video)
     return (
       <TouchableOpacity
         style={styles.postItemContainer}
         onPress={() => {
-          navigation.navigate("postDetail", { post, video });
+          navigation.navigate("postDetail", { post, video, userEmail });
         }}
       >
         <View style={styles.profilePicContainer}>
-          <AntDesign name="user" size={19} color="black" />
+        <Avatar.Image
+                source={{
+                  uri: "https://api.adorable.io/avatars/50/abott@adorable.png",
+                }}
+                size={30}
+              />
+          {/* <AntDesign name="user" size={19} color="black" /> */}
         </View>
         <View style={styles.postDetailsContainer}>
           <View style={styles.postDetailsHeader}>
-            <Text style={styles.userName}>User Name</Text>
+            <Text style={styles.userName}>{userEmail}</Text>
             {/* <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignItems:'center'}}>
               <Feather name="share" size={21} color="black" />
             </TouchableOpacity> */}

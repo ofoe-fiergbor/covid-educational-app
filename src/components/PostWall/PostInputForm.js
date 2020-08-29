@@ -67,7 +67,8 @@ class PostInputForm extends Component {
     }
 
     const uid = this.props.user.user.uid
-    this.props.addNewPost(this.state, uid);
+    const userEmail = this.props.user.user.email
+    this.props.addNewPost(this.state, uid, userEmail);
     this.props.closeModal();
   };
 
@@ -114,7 +115,7 @@ class PostInputForm extends Component {
   }
 }
 const mstp = state =>{
-  // console.log(state.auth.user.user.uid)
+  // console.log(state.auth.user.user.email)
   return{
     user: state.auth.user
   }

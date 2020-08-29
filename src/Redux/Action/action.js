@@ -1,15 +1,18 @@
 import firebase from "../../Firebase/firebase";
 // import { firestore } from "firebase";
 
-export const addNewPost = (newPost, uid) => {
+export const addNewPost = (newPost, Userid, userEmail) => {
   return async (dispatch) => {
     try {
+
       await firebase
         .firestore()
         .collection("userPost")
         .add({
           ...newPost,
-          uid: uid,
+          // firstName:'',
+          uid: Userid,
+          userEmail: userEmail,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         });
     } catch (error) {
