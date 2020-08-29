@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
-import drawer from "../img/drawer.jpeg";
+import news from "../img/news.jpeg";
+import blob3 from "../img/blob3.png";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-export default class DrawerBoarding extends Component {
+export default class AllappsBoarding extends Component {
   render() {
     const { navigation } = this.props;
     return (
@@ -16,10 +17,10 @@ export default class DrawerBoarding extends Component {
             justifyContent: "space-between",
             backgroundColor: "#f0fafc",
             marginBottom: 10,
-            alignItems: "center",
+            alignItems: 'center'
           }}
         >
-          <Image source={drawer} style={{ height: 300, width: 150 }} />
+          <Image source={news} style={{ height: 300, width: 150, }} />
         </View>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
           {/* <Image
@@ -35,7 +36,7 @@ export default class DrawerBoarding extends Component {
               paddingBottom: 5,
             }}
           >
-            Checkout Menu
+            Main App
           </Text>
           <Text
             style={{
@@ -46,7 +47,7 @@ export default class DrawerBoarding extends Component {
               paddingBottom: 5,
             }}
           >
-            Step 2
+            Step 3
           </Text>
           <Text
             style={{
@@ -57,7 +58,7 @@ export default class DrawerBoarding extends Component {
               paddingBottom: 5,
             }}
           >
-            Pull out Drawer to access
+            Browse through the app to access the
           </Text>
           <Text
             style={{
@@ -68,7 +69,7 @@ export default class DrawerBoarding extends Component {
               paddingBottom: 5,
             }}
           >
-            your wall and other settings
+             news, post and tracker options
           </Text>
           <View
             style={{
@@ -77,6 +78,7 @@ export default class DrawerBoarding extends Component {
               marginTop: 50,
             }}
           >
+            
             <View
               style={{
                 height: 10,
@@ -86,6 +88,19 @@ export default class DrawerBoarding extends Component {
                 borderWidth: 1,
                 borderRadius: 50,
                 marginRight: 20,
+              }}
+            ></View>
+            
+            <View
+              style={{
+                height: 10,
+                width: 10,
+                backgroundColor: "white",
+                borderColor: "skyblue",
+                borderWidth: 1,
+                borderRadius: 50,
+                marginRight: 20,
+
               }}
             ></View>
             <View
@@ -93,17 +108,6 @@ export default class DrawerBoarding extends Component {
                 height: 10,
                 width: 20,
                 backgroundColor: "skyblue",
-                borderRadius: 50,
-                marginRight: 20,
-              }}
-            ></View>
-            <View
-              style={{
-                height: 10,
-                width: 10,
-                backgroundColor: "white",
-                borderColor: "skyblue",
-                borderWidth: 1,
                 borderRadius: 50,
               }}
             ></View>
@@ -117,7 +121,7 @@ export default class DrawerBoarding extends Component {
           }}
         >
           <TouchableOpacity
-            onPress={() => navigation.navigate("signboard")}
+            onPress={() => navigation.navigate("drawerboard")}
             style={{
               backgroundColor: "#dde2eb",
               paddingVertical: 15,
@@ -132,7 +136,7 @@ export default class DrawerBoarding extends Component {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigation.navigate("allappsboard")}
+            onPress={() => navigation.navigate("login")}
             style={{
               backgroundColor: "skyblue",
               paddingVertical: 15,
@@ -143,7 +147,7 @@ export default class DrawerBoarding extends Component {
             }}
           >
             <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>
-              Next
+              Start
             </Text>
           </TouchableOpacity>
         </View>
