@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { Avatar, Title, Caption, Drawer } from "react-native-paper";
 import { signOut } from "../Redux/Action/AuthActions";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
@@ -23,7 +23,7 @@ function DrawerEntity(props) {
               <View style={{ marginLeft: 15, flexDirection: "column" }}>
                 {(props.state.auth.isLoggedIn) ? (
                   <Title style={styles.title}>
-                    {props.state.auth.user.user.providerData[0].email}
+                    <Text numberOfLines={1}>{props.state.auth.user.user.providerData[0].email}</Text>
                   </Title>
                 ): null}
                 {/* <Caption style={styles.caption}>@j_doe</Caption> */}
