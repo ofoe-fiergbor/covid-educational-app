@@ -35,21 +35,22 @@ export default class PostDetail extends Component {
 
   render() {
     const { route, navigation } = this.props;
-    const { post, video, userEmail } = route.params;
+    const { post, video, userNameFromEmail, firstTwoCharacters } = route.params;
     return (
       <View style={styles.container}>
         <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:10}}>
           <View style={{flexDirection:'row', alignItems:'center'}}>
             <View style={styles.profilePicContainer}>
-            <Avatar.Image
+          <Text style={{fontSize: 15, textTransform:'uppercase', fontWeight:'bold'}}>{firstTwoCharacters}</Text>
+            {/* <Avatar.Image
                 source={{
                   uri: "https://api.adorable.io/avatars/50/abott@adorable.png",
                 }}
                 size={30}
-              />
+              /> */}
               {/* <AntDesign name="user" size={19} color="black" /> */}
             </View>
-            <Text>{userEmail}</Text>
+            <Text style={{fontWeight:'bold'}}>{userNameFromEmail}</Text>
           </View>
           <TouchableOpacity onPress={this.onShare}>
             <Feather name="share" size={21} color="black" />

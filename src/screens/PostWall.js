@@ -18,6 +18,7 @@ class PostWall extends React.Component {
 
   render() {
     let { posts, navigation, loading } = this.props;
+    console.log(posts.timestamp)
     return (
       <View style={styles.container}>
         <ModalScreen />

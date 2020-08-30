@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Share, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, View, Share, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
 import { Video } from "expo-av";
@@ -35,12 +35,13 @@ export default class PostItem extends Component {
     let firstTwoCharacters = userNameFromEmail.slice(0, 2);
 
     return (
-      <TouchableOpacity
-        style={styles.postItemContainer}
+      <TouchableWithoutFeedback
+        
         onPress={() => {
-          navigation.navigate("postDetail", { post, video, userEmail });
+          navigation.navigate("postDetail", { post, video, userNameFromEmail, firstTwoCharacters });
         }}
       >
+        <View style={styles.postItemContainer}>
         <View style={styles.profilePicContainer}>
           <Text style={{fontSize: 15, textTransform:'uppercase', fontWeight:'bold'}}>{firstTwoCharacters}</Text>
           {/* <Avatar.Image
@@ -78,7 +79,8 @@ export default class PostItem extends Component {
             )}
           </View>
         </View>
-      </TouchableOpacity>
+        </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
