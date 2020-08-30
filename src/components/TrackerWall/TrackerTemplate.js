@@ -3,6 +3,10 @@ import { Text, StyleSheet, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 export default function TrackerTemplate(props) {
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
   const {
     recoveries,
     fatalities,
@@ -66,7 +70,7 @@ export default function TrackerTemplate(props) {
                 New Cases
               </Text>
               <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
-               {newCases}
+               {numberWithCommas(newCases)}
               </Text>
             </View>
             <View style={styles.cards}>
@@ -90,7 +94,7 @@ export default function TrackerTemplate(props) {
                 Recovered
               </Text>
               <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
-                {recoveries}
+                {numberWithCommas(recoveries)}
               </Text>
             </View>
           </View>
@@ -122,7 +126,7 @@ export default function TrackerTemplate(props) {
                 Infected{" "}
               </Text>
               <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
-                {confirmedCases}
+                {numberWithCommas(confirmedCases)}
               </Text>
             </View>
             <View style={styles.cards}>
@@ -146,7 +150,7 @@ export default function TrackerTemplate(props) {
                 Deaths{" "}
               </Text>
               <Text style={{ color: "#000", fontWeight: "bold", fontSize: 17 }}>
-                {fatalities}
+                {numberWithCommas(fatalities)}
               </Text>
             </View>
           </View>
