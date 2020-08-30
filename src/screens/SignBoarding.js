@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
-import loginimage from "../img/login.jpeg";
-import signupimage from "../img/signup.jpeg";
+import loginimage from "../img/log.png";
 import blob3 from "../img/blob3.png";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -13,16 +12,15 @@ export default class SignBoarding extends Component {
         <View
           style={{
             flexDirection: "row",
-            paddingHorizontal: 20,
+            paddingHorizontal: 30,
             paddingVertical: 20,
             justifyContent: "space-between",
-            backgroundColor: "#f0fafc",
+            // backgroundColor: "#f0fafc",
             // elevation: 10,
             marginBottom: 10,
           }}
         >
-          <Image source={loginimage} style={{ height: 300, width: 150 }} />
-          <Image source={signupimage} style={{ height: 300, width: 150 }} />
+          <Image source={loginimage} style={{ height: 300, width: 300 }} />
         </View>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
           {/* <Image
@@ -158,6 +156,6 @@ export default class SignBoarding extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0fafc",
+    backgroundColor: "#fff",
   },
 });

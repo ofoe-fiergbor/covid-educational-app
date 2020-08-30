@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
-import drawer from "../img/drawer.jpeg";
+import check from "../img/check.png";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class DrawerBoarding extends Component {
@@ -11,15 +11,14 @@ export default class DrawerBoarding extends Component {
         <View
           style={{
             flexDirection: "row",
-            marginHorizontal: 100,
+            marginHorizontal: 40,
             paddingVertical: 20,
             justifyContent: "space-between",
-            backgroundColor: "#f0fafc",
             marginBottom: 10,
             alignItems: "center",
           }}
         >
-          <Image source={drawer} style={{ height: 300, width: 150 }} />
+          <Image source={check} style={{ height: 300, width: 300 }} />
         </View>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
           {/* <Image
@@ -155,6 +154,6 @@ export default class DrawerBoarding extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0fafc",
+    backgroundColor: "#fff",
   },
 });

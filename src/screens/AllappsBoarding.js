@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, Image } from "react-native";
-import news from "../img/news.jpeg";
+import mobile from "../img/mobile.png";
 import blob3 from "../img/blob3.png";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -12,15 +12,14 @@ export default class AllappsBoarding extends Component {
         <View
           style={{
             flexDirection: "row",
-            marginHorizontal: 100,
+            marginHorizontal: 10,
             paddingVertical: 20,
             justifyContent: "space-between",
-            backgroundColor: "#f0fafc",
             marginBottom: 10,
             alignItems: 'center'
           }}
         >
-          <Image source={news} style={{ height: 300, width: 150, }} />
+          <Image source={mobile} style={{ height: 300, width: 320, }} />
         </View>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
           {/* <Image
@@ -159,6 +158,6 @@ export default class AllappsBoarding extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0fafc",
+    backgroundColor: "#fff",
   },
 });
