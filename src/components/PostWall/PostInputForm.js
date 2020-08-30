@@ -23,6 +23,7 @@ class PostInputForm extends Component {
     this.getPermissionAsync();
   }
 
+
   getPermissionAsync = async () => {
     if (Constants.platform.ios) {
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -65,8 +66,9 @@ class PostInputForm extends Component {
       return null
     }
 
-    // console.log(this.state);
-    this.props.addNewPost(this.state);
+    const uid = this.props.user.user.uid
+    const userEmail = this.props.user.user.email
+    this.props.addNewPost(this.state, uid, userEmail);
     this.props.closeModal();
   };
 
@@ -112,7 +114,13 @@ class PostInputForm extends Component {
     );
   }
 }
-export default connect(null, { closeModal, addNewPost })(PostInputForm);
+const mstp = state =>{
+  // console.log(state.auth.user.user.email)
+  return{
+    user: state.auth.user
+  }
+}
+export default connect(mstp, { closeModal, addNewPost })(PostInputForm);
 
 const styles = StyleSheet.create({
   inputForm: {
