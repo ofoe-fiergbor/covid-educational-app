@@ -1,23 +1,20 @@
 import React, { Component } from "react";
 import { Text, StyleSheet, View, Share, TouchableOpacity } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
-import {Avatar} from 'react-native-paper'
+import { Avatar } from "react-native-paper";
 import { Video } from "expo-av";
 import { Dimensions } from "react-native";
-import Hyperlink from 'react-native-hyperlink'
-
-
+import Hyperlink from "react-native-hyperlink";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 export default class PostItem extends Component {
-  
   onShare = async () => {
     try {
       const result = await Share.share({
         message: this.props.post,
-        url: this.props.video
-          // "React Native | A framework for building native apps using React",
+        url: this.props.video,
+        // "React Native | A framework for building native apps using React",
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -34,7 +31,9 @@ export default class PostItem extends Component {
   };
   render() {
     const { post, navigation, video, userEmail } = this.props;
-    // console.log(video)
+    let userNameFromEmail = userEmail.slice(0, userEmail.indexOf("@"));
+    let firstTwoCharacters = userNameFromEmail.slice(0, 2);
+
     return (
       <TouchableOpacity
         style={styles.postItemContainer}
@@ -43,24 +42,25 @@ export default class PostItem extends Component {
         }}
       >
         <View style={styles.profilePicContainer}>
-        <Avatar.Image
+          <Text style={{fontSize: 15, textTransform:'uppercase', fontWeight:'bold'}}>{firstTwoCharacters}</Text>
+          {/* <Avatar.Image
                 source={{
                   uri: "https://api.adorable.io/avatars/50/abott@adorable.png",
                 }}
                 size={30}
-              />
+              /> */}
           {/* <AntDesign name="user" size={19} color="black" /> */}
         </View>
         <View style={styles.postDetailsContainer}>
           <View style={styles.postDetailsHeader}>
-            <Text style={styles.userName}>{userEmail}</Text>
+            <Text style={styles.userName}>{userNameFromEmail}</Text>
             {/* <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignItems:'center'}}>
               <Feather name="share" size={21} color="black" />
             </TouchableOpacity> */}
           </View>
           <View>
-            <Hyperlink linkStyle={ { color: '#2980b9' } }>
-            <Text numberOfLines={4}>{post}</Text>
+            <Hyperlink linkStyle={{ color: "#2980b9" }}>
+              <Text numberOfLines={4}>{post}</Text>
             </Hyperlink>
             {video && (
               <View style={{ height: 200 }}>
