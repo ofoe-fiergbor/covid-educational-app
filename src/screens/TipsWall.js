@@ -6,7 +6,7 @@ export default class TipsWall extends Component {
   Tips = [
     {
       id: "1",
-      link: 'https://www.cdc.gov/coronavirus/',
+      link: 'https://www.cdc.gov/coronavirus/2019-ncov/hcp/clinical-tips-for-healthcare-providers.html',
       title: "Ten Clinical Tips",
       image: require("../img/ten.jpg"),
       details:
@@ -14,7 +14,7 @@ export default class TipsWall extends Component {
     },
     {
       id: "2",
-      link: 'https://www.cdc.gov/coronavirus/',
+      link: 'https://www.cdc.gov/coronavirus/2019-ncov/hcp/pediatric-hcp.html',
       title: "Care for children",
       image: require("../img/children.jpg"),
       details:
@@ -22,7 +22,7 @@ export default class TipsWall extends Component {
     },
     {
       id: "3",
-      link: 'https://www.cdc.gov/coronavirus/',
+      link: 'https://www.cdc.gov/coronavirus/2019-ncov/hcp/inpatient-obstetric-healthcare-guidance.html',
       title: "Care for pregnant women",
       image: require("../img/pregnant.jpg"),
       details:
@@ -30,7 +30,7 @@ export default class TipsWall extends Component {
     },
     {
       id: "4",
-      link: 'https://www.cdc.gov/coronavirus/',
+      link: 'https://www.cdc.gov/coronavirus/2019-ncov/hcp/caring-for-newborns.html',
       title: "Care for newborn babies",
       image: require("../img/newborn.jpg"),
       details:
@@ -38,7 +38,7 @@ export default class TipsWall extends Component {
     },
     {
       id: "5",
-      link: 'https://www.cdc.gov/coronavirus/',
+      link: 'https://www.cdc.gov/coronavirus/2019-ncov/hcp/care-for-breastfeeding-women.html',
       title: "Care for breastfeeding mothers",
       image: require("../img/breastfeed.jpg"),
       details:
