@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Entypo, AntDesign } from "@expo/vector-icons";
+import { Entypo, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import PostWall from "../screens/PostWall";
 import NewsWall from "../screens/NewsWall";
 import TrackerWall from "../screens/TrackerWall";
-import SettingScreen from "../screens/Settings";
+import TipsWall from "../screens/TipsWall";
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -55,12 +55,16 @@ const TabNavigation = () => {
         }}
       />
       <BottomTabs.Screen
-        name="profile"
-        component={SettingScreen}
+        name="tips"
+        component={TipsWall}
         options={{
-          tabBarLabel: "Profile",
+          tabBarLabel: "Tips",
           tabBarIcon: ({ color }) => (
-            <AntDesign name="user" size={26} color={color} />
+            <MaterialCommunityIcons
+              name="lightbulb-on-outline"
+              size={26}
+              color={color}
+            />
           ),
         }}
       />

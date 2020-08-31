@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 import SignBoarding from "../screens/SignBoarding";
 import DrawerBoarding from "../screens/DrawerBoarding";
 import AllappsBoarding from "../screens/AllappsBoarding";
+import TipsWallDetail from '../components/TipsWall/TipsDetail/TipsWallDetail'
 
 
 
@@ -42,6 +43,26 @@ const StackNavigation = ({ navigate, auth }) => {
                 <TouchableOpacity
                   onPress={() => {
                     navigate("tabs");
+                  }}
+                  style={styles.backIcon}
+                >
+                  <Ionicons
+                    name="ios-arrow-round-back"
+                    size={40}
+                    color="white"
+                  />
+                </TouchableOpacity>
+              ),
+            }}
+          />
+          <Stack.Screen
+            name="TipsWallDetail"
+            component={TipsWallDetail}
+            options={{
+              headerLeft: () => (
+                <TouchableOpacity
+                  onPress={() => {
+                    navigate("tips");
                   }}
                   style={styles.backIcon}
                 >
