@@ -18,7 +18,7 @@ const SECTIONS = [
   {
     title: "3.  When is someone infectious?",
     content:
-      "The onset and duration of viral shedding and the period of infectiousness for COVID-19 are not yet known with certainty. Based on current evidence, scientists believe that persons with mild to moderate COVID-19 may shed replication-competent SARS-CoV-2 for up to 10 days following symptom onset, while a small fraction of persons with severe COVID-19, including immunocompromised persons, may shed replication-competent virus for up to 20 days. It is possible that SARS-CoV-2 RNA may be detectable in the upper or lower respiratory tract for weeks after illness onset, similar to infections with MERS-CoV and SARS-CoV. However, detection of viral RNA does not necessarily mean that infectious virus is present. Based on existing literature, the incubation period (the time from exposure to development of symptoms) of SARS-CoV-2 and other coronaviruses (e.g., MERS-CoV, SARS-CoV) ranges from 2–14 days.",
+      "The onset and duration of viral shedding and the period of infectiousness for COVID-19 are not yet known with certainty. Based on current evidence, scientists believe that persons with mild to moderate COVID-19 may shed replication-competent SARS-CoV-2 for up to 10 days following symptom onset, while a small fraction of persons with severe COVID-19, including immunocompromised persons, may shed replication-competent virus for up to 20 days. It is possible that SARS-CoV-2 RNA may be detectable in the upper or lower respiratory tract for weeks after illness onset, similar to infections with MERS-CoV and SARS-CoV. However, detection of viral RNA does not necessarily mean that infectious virus is present. Based on existing literature, the incubation period (the time from exposure to development of symptoms) of SARS-CoV-2 and other (e.g., MERS-CoV, SARS-CoV) ranges from 2–14 days.",
   },
   {
     title: "4.  Which body fluids can spread infection?",
@@ -125,17 +125,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     padding: 10,
   },
-  content:{
+  content: {
     padding: 10,
   },
   headerText: {
-      color: '#5e5e5e',
-      fontWeight: 'bold',
-      fontSize: 16,
-      fontStyle: 'italic'
+    color: "#5e5e5e",
+    fontWeight: "bold",
+    fontSize: 16,
+    fontStyle: "italic",
   },
-  content_text:{
-      fontSize: 15,
-      
-  }
+  content_text: {
+    fontSize: 15,
+  },
 });
