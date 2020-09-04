@@ -17,6 +17,7 @@ class PostInputForm extends Component {
       post: "",
       video: null,
       id: Math.random().toString(36).substr(2, 5),
+      // timeOfPost: new Date(new Date()).toLocaleTimeString('en-US')
     };
   }
   componentDidMount() {

@@ -14,6 +14,7 @@ export const addNewPost = (newPost, Userid, userEmail) => {
           uid: Userid,
           userEmail: userEmail,
           timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+          
         });
     } catch (error) {
       console.log(error);

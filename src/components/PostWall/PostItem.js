@@ -30,9 +30,12 @@ export default class PostItem extends Component {
     }
   };
   render() {
-    const { post, navigation, video, userEmail } = this.props;
+    const { post, navigation, video, userEmail, timestamp } = this.props;
     let userNameFromEmail = userEmail.slice(0, userEmail.indexOf("@"));
     let firstTwoCharacters = userNameFromEmail.slice(0, 2);
+    // let timeOfPost = timestamp.toDate()
+    
+
 
     return (
       <TouchableWithoutFeedback
@@ -55,6 +58,7 @@ export default class PostItem extends Component {
         <View style={styles.postDetailsContainer}>
           <View style={styles.postDetailsHeader}>
             <Text style={styles.userName}>{userNameFromEmail}</Text>
+            {/* <Text></Text> */}
             {/* <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignItems:'center'}}>
               <Feather name="share" size={21} color="black" />
             </TouchableOpacity> */}
@@ -95,6 +99,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     elevation: 5,
+    marginVertical: 1.5
   },
   profilePicContainer: {
     backgroundColor: "#a1caff",

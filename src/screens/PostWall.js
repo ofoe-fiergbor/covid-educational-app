@@ -18,7 +18,7 @@ class PostWall extends React.Component {
 
   render() {
     let { posts, navigation, loading } = this.props;
-    console.log(posts.timestamp)
+    // console.log(posts.timestamp)
     return (
       <View style={styles.container}>
         <ModalScreen />
@@ -33,6 +33,7 @@ class PostWall extends React.Component {
                 video={item.video}
                 userEmail={item.userEmail}
                 navigation={navigation}
+                timestamp={item.timestamp}
               />
             );
           }}
