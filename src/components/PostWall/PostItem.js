@@ -82,6 +82,9 @@ export default class PostItem extends Component {
               </View>
             )}
           </View>
+          <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignSelf:'flex-end', justifyContent:'center'}}>
+              <Feather name="share" size={20} color="black" />
+            </TouchableOpacity>
         </View>
         </View>
       </TouchableWithoutFeedback>
@@ -102,7 +105,8 @@ const styles = StyleSheet.create({
     marginVertical: 1.5
   },
   profilePicContainer: {
-    backgroundColor: "#a1caff",
+    backgroundColor: "orange",
+    borderWidth:1,
     height: 30,
     width: 30,
     justifyContent: "center",
@@ -124,5 +128,6 @@ const styles = StyleSheet.create({
   userName: {
     fontWeight: "bold",
     marginLeft: 5,
+    textTransform:'capitalize'
   },
 });

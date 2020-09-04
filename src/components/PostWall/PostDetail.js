@@ -50,7 +50,7 @@ export default class PostDetail extends Component {
               /> */}
               {/* <AntDesign name="user" size={19} color="black" /> */}
             </View>
-            <Text style={{fontWeight:'bold'}}>{userNameFromEmail}</Text>
+            <Text style={{fontWeight:'bold', textTransform:'capitalize'}}>{userNameFromEmail}</Text>
           </View>
           <TouchableOpacity onPress={this.onShare}>
             <Feather name="share" size={21} color="black" />
@@ -86,13 +86,13 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   profilePicContainer: {
-    backgroundColor: "#a1caff",
+    backgroundColor: "orange",
     height: 35,
     width: 35,
     justifyContent: "center",
     alignItems: "center",
     marginRight:10,
     borderRadius: 50,
-    // flex: 0.8,
+    borderWidth: 1
   },
 });

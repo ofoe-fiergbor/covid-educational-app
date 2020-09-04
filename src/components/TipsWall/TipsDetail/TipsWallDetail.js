@@ -40,6 +40,7 @@ class TipsWallDetail extends Component {
             </Text>
           </View>
         </View>
+        <ScrollView>
         <View style={{margin: 5}}>
         <TouchableWithoutFeedback
               onPress={() => Linking.openURL(link)}
@@ -63,7 +64,7 @@ class TipsWallDetail extends Component {
               
             </TouchableWithoutFeedback>
         </View>
-        <ScrollView>
+        
           <View style={{ marginHorizontal: 10 }}>
           
             <Text style={{ fontSize: 16, color: "#808787" }}>{details} </Text>
