@@ -47,7 +47,7 @@ export default class PostItem extends Component {
       >
         <View style={styles.postItemContainer}>
         <View style={styles.profilePicContainer}>
-          <Text style={{fontSize: 15, textTransform:'uppercase', fontWeight:'bold', color: '#606060'}}>{firstTwoCharacters}</Text>
+          <Text style={{fontSize: 12, textTransform:'uppercase', fontWeight:'bold', color: '#606060'}}>{firstTwoCharacters}</Text>
           {/* <Avatar.Image
                 source={{
                   uri: "https://api.adorable.io/avatars/50/abott@adorable.png",
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: windowWidth,
     minHeight: 80,
-    backgroundColor: "#e8f2ff",
+    backgroundColor: "#fff",
     flexDirection: "row",
     paddingHorizontal: 10,
     paddingVertical: 10,

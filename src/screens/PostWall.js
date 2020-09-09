@@ -57,6 +57,6 @@ export default connect(mstp, { getAllPosts })(PostWall);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#e8f2ff",
   },
 });
