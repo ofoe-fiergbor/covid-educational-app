@@ -59,7 +59,7 @@ export default class PostItem extends Component {
         <View style={styles.postDetailsContainer}>
         
           <View style={styles.postDetailsHeader}>
-            <Text style={styles.userName}>{userNameFromEmail}</Text>
+            <Text style={styles.userName}>@{userNameFromEmail}</Text>
             {/* <Text></Text> */}
             {/* <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignItems:'center'}}>
               <Feather name="share" size={21} color="black" />
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   userName: {
     fontWeight: "bold",
     marginLeft: 5,
-    textTransform:'capitalize',
+    // textTransform:'capitalize',
    color: '#606060',
   },
 });

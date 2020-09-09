@@ -74,11 +74,11 @@ export default class PostDetail extends Component {
             <Text
               style={{
                 fontWeight: "bold",
-                textTransform: "capitalize",
+                // textTransform: "capitalize",
                 color: "#606060",
               }}
             >
-              {userNameFromEmail}
+              @{userNameFromEmail}
             </Text>
           </View>
           <TouchableOpacity onPress={this.onShare}>
