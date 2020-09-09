@@ -185,8 +185,9 @@ const styles = StyleSheet.create({
   top__header: {
     backgroundColor: "#326da8",
     flex: 4,
-    borderBottomLeftRadius: 100,
-    borderBottomRightRadius: 100,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
+    elevation: 20,
   },
   bottom__details: {
     flex: 6,

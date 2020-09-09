@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, Share, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import { Text, StyleSheet, View, Share, TouchableOpacity, TouchableWithoutFeedback, ActivityIndicator } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { Avatar } from "react-native-paper";
 import { Video } from "expo-av";
@@ -9,6 +9,7 @@ import Hyperlink from "react-native-hyperlink";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 export default class PostItem extends Component {
+  
   onShare = async () => {
     try {
       const result = await Share.share({
@@ -46,7 +47,7 @@ export default class PostItem extends Component {
       >
         <View style={styles.postItemContainer}>
         <View style={styles.profilePicContainer}>
-          <Text style={{fontSize: 15, textTransform:'uppercase', fontWeight:'bold'}}>{firstTwoCharacters}</Text>
+          <Text style={{fontSize: 15, textTransform:'uppercase', fontWeight:'bold', color: '#606060'}}>{firstTwoCharacters}</Text>
           {/* <Avatar.Image
                 source={{
                   uri: "https://api.adorable.io/avatars/50/abott@adorable.png",
@@ -56,6 +57,7 @@ export default class PostItem extends Component {
           {/* <AntDesign name="user" size={19} color="black" /> */}
         </View>
         <View style={styles.postDetailsContainer}>
+        
           <View style={styles.postDetailsHeader}>
             <Text style={styles.userName}>{userNameFromEmail}</Text>
             {/* <Text></Text> */}
@@ -65,7 +67,7 @@ export default class PostItem extends Component {
           </View>
           <View>
             <Hyperlink linkStyle={{ color: "#2980b9" }}>
-              <Text numberOfLines={4}>{post}</Text>
+              <Text numberOfLines={4} style={{color: '#919191', letterSpacing: 1}}>{post}</Text>
             </Hyperlink>
             {video && (
               <View style={{ height: 200 }}>
@@ -85,6 +87,7 @@ export default class PostItem extends Component {
           <TouchableOpacity onPress={this.onShare} style={{width:50, height: 25, alignSelf:'flex-end', justifyContent:'center'}}>
               <Feather name="share" size={20} color="black" />
             </TouchableOpacity>
+            
         </View>
         </View>
       </TouchableWithoutFeedback>
@@ -105,14 +108,16 @@ const styles = StyleSheet.create({
     marginVertical: 1.5
   },
   profilePicContainer: {
-    backgroundColor: "orange",
+    backgroundColor: "#c8d2fa",
     borderWidth:1,
-    height: 30,
+  
+    height: 33,
     width: 30,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 50,
     flex: 0.8,
+    borderColor: '#fff'
   },
   postDetailsContainer: {
     flex: 8,
@@ -128,6 +133,7 @@ const styles = StyleSheet.create({
   userName: {
     fontWeight: "bold",
     marginLeft: 5,
-    textTransform:'capitalize'
+    textTransform:'capitalize',
+   color: '#606060',
   },
 });

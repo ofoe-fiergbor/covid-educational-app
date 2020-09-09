@@ -1,23 +1,29 @@
 import React, { Component } from "react";
-import { Text, StyleSheet, View, TouchableOpacity, Share, Linking } from "react-native";
+import {
+  Text,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Share,
+  Linking,
+} from "react-native";
 import { Video } from "expo-av";
 import { Dimensions } from "react-native";
 import { AntDesign, Feather } from "@expo/vector-icons";
-import Hyperlink from 'react-native-hyperlink'
-import {Avatar} from 'react-native-paper'
-
+import Hyperlink from "react-native-hyperlink";
+import { Avatar } from "react-native-paper";
+import { ScrollView } from "react-native-gesture-handler";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export default class PostDetail extends Component {
-
   onShare = async () => {
     try {
       const result = await Share.share({
         message: this.props.route.params.post,
-        url: this.props.video
-          // "React Native | A framework for building native apps using React",
+        url: this.props.video,
+        // "React Native | A framework for building native apps using React",
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -38,11 +44,26 @@ export default class PostDetail extends Component {
     const { post, video, userNameFromEmail, firstTwoCharacters } = route.params;
     return (
       <View style={styles.container}>
-        <View style={{flexDirection:'row', justifyContent:'space-between', marginHorizontal:10}}>
-          <View style={{flexDirection:'row', alignItems:'center'}}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginHorizontal: 10,
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
             <View style={styles.profilePicContainer}>
-          <Text style={{fontSize: 15, textTransform:'uppercase', fontWeight:'bold'}}>{firstTwoCharacters}</Text>
-            {/* <Avatar.Image
+              <Text
+                style={{
+                  fontSize: 15,
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                  color: "#606060",
+                }}
+              >
+                {firstTwoCharacters}
+              </Text>
+              {/* <Avatar.Image
                 source={{
                   uri: "https://api.adorable.io/avatars/50/abott@adorable.png",
                 }}
@@ -50,15 +71,35 @@ export default class PostDetail extends Component {
               /> */}
               {/* <AntDesign name="user" size={19} color="black" /> */}
             </View>
-            <Text style={{fontWeight:'bold', textTransform:'capitalize'}}>{userNameFromEmail}</Text>
+            <Text
+              style={{
+                fontWeight: "bold",
+                textTransform: "capitalize",
+                color: "#606060",
+              }}
+            >
+              {userNameFromEmail}
+            </Text>
           </View>
           <TouchableOpacity onPress={this.onShare}>
             <Feather name="share" size={21} color="black" />
           </TouchableOpacity>
         </View>
-        <Hyperlink linkStyle={ { color: '#2980b9' } } linkDefault={ true } >
-        <Text style={{marginVertical:20, marginHorizontal: 20}}> {post} </Text>
-        </Hyperlink>
+        <ScrollView>
+          <Hyperlink linkStyle={{ color: "#2980b9" }} linkDefault={true}>
+            <Text
+              style={{
+                marginVertical: 20,
+                marginHorizontal: 20,
+                color: "#919191",
+                letterSpacing: 1,
+              }}
+            >
+              {" "}
+              {post}{" "}
+            </Text>
+          </Hyperlink>
+        </ScrollView>
         {video && (
           <View style={{ height: 300, width: windowWidth }}>
             <Video
@@ -86,13 +127,14 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   profilePicContainer: {
-    backgroundColor: "orange",
+    backgroundColor: "#c8d2fa",
     height: 35,
     width: 35,
     justifyContent: "center",
     alignItems: "center",
-    marginRight:10,
+    marginRight: 10,
     borderRadius: 50,
-    borderWidth: 1
+    borderWidth: 1,
+    borderColor: "#fff",
   },
 });
