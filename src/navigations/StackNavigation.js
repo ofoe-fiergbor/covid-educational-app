@@ -25,7 +25,7 @@ const StackNavigation = ({ navigate, auth }) => {
       {auth.isLoggedIn ? (
         <Stack.Navigator
           screenOptions={{
-            headerTitle: "COVID EDUCARE",
+            headerTitle: "COVID 19 EDU APP",
             headerTitleAlign: "center",
             headerTintColor: "#fff",
             headerStyle: {
