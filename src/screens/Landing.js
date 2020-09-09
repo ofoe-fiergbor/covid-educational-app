@@ -1,8 +1,31 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import landing from "../img/landing.png";
+import { AppLoading } from "expo";
+import {
+  useFonts,
+  OpenSans_300Light,
+  OpenSans_300Light_Italic,
+  OpenSans_400Regular,
+  OpenSans_400Regular_Italic,
+  OpenSans_600SemiBold,
+  OpenSans_600SemiBold_Italic,
+  OpenSans_700Bold,
+  OpenSans_700Bold_Italic,
+  OpenSans_800ExtraBold,
+  OpenSans_800ExtraBold_Italic,
+} from "@expo-google-fonts/open-sans";
 
 const Landing = ({ navigation }) => {
+  let [fontsLoaded, error] = useFonts({
+    ExtraBold:OpenSans_700Bold,
+    ExtraLight:OpenSans_300Light,
+    SemiBold: OpenSans_600SemiBold
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <View style={styles.container}>
       <Image
@@ -31,9 +54,9 @@ const Landing = ({ navigation }) => {
         <Text
           style={{
             fontSize: 30,
-            fontWeight: "bold",
             color: "#016a85",
             marginVertical: 3,
+            fontFamily: "SemiBold",
           }}
         >
           Covid 19 Edu App
@@ -44,6 +67,7 @@ const Landing = ({ navigation }) => {
             color: "#9198a3",
             letterSpacing: 1,
             paddingBottom: 5,
+            fontFamily: 'ExtraLight'
           }}
         >
           An Educational app that provides{" "}
@@ -54,6 +78,7 @@ const Landing = ({ navigation }) => {
             color: "#9198a3",
             letterSpacing: 1,
             paddingBottom: 5,
+            fontFamily: 'ExtraLight'
           }}
         >
           insight into the{" "}
@@ -64,6 +89,7 @@ const Landing = ({ navigation }) => {
             color: "#9198a3",
             letterSpacing: 1,
             paddingBottom: 5,
+            fontFamily: 'ExtraLight'
           }}
         >
           Coronavirus pandemic
@@ -73,7 +99,7 @@ const Landing = ({ navigation }) => {
         style={styles.btn}
         onPress={() => navigation.navigate("signboard")}
       >
-        <Text style={{ fontSize: 25, fontWeight: "bold", color: "#fff" }}>
+        <Text style={{ fontSize: 25,  color: "#fff",fontFamily: "ExtraLight" }}>
           Get Started
         </Text>
       </TouchableOpacity>
