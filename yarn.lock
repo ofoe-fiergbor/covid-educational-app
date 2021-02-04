@@ -963,10 +963,20 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@expo-google-fonts/cormorant-upright@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/cormorant-upright/-/cormorant-upright-0.1.0.tgz#6bb2f61299fd250c440ed9224c2e3b7b3545268a"
+  integrity sha512-egBMZr39k0bAkUPAz6cKWVM8tCIRJK4BRUmLUI1DLw2e6wc40KKZOp2O+yh92jq9JY6gc3cZQsM6Mo/I7/qhWw==
+
 "@expo-google-fonts/open-sans@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/open-sans/-/open-sans-0.1.0.tgz#3825d48afa7b9176af7202be28067ad774536819"
   integrity sha512-haXOb/9IF8UxXIGRUIrXqPDJF/QIicuJUqbBrPUshqJ8q8On4/Om1qPltlfl/ijn/15LYyhIQJRYKfrigJmO4g==
+
+"@expo-google-fonts/quicksand@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/quicksand/-/quicksand-0.1.0.tgz#bf97de249afe4e6663c9fecb84b3a09fbce7fd04"
+  integrity sha512-9HiiR4DGxCvdUYvr4MTQtH5g1y7Fp2njVTFSrBVSW9Sw5lwJ20HBE0+B5OFB/EzuFyXNsJiBN4f1GE5VbwPqXA==
 
 "@expo/configure-splash-screen@0.1.13":
   version "0.1.13"
@@ -980,6 +990,23 @@
     core-js "^3.6.5"
     deep-equal "^2.0.3"
     fs-extra "^9.0.0"
+    pngjs "^5.0.0"
+    xcode "^3.0.0"
+    xml-js "^1.6.11"
+
+"@expo/configure-splash-screen@0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@expo/configure-splash-screen/-/configure-splash-screen-0.3.1.tgz#a55b52718751907fd3fbaeb76dbd4162d282fa13"
+  integrity sha512-Wf9U8OYoIQojYjTuXgtTqDmlA4SdSEEQo9PxnVKuF8224FtJoYX1Kwc6kiVKc/4suplrqE71ZVJXOE2Uyh4SHw==
+  dependencies:
+    "@react-native-community/cli-platform-android" "^4.10.0"
+    "@react-native-community/cli-platform-ios" "^4.10.0"
+    color-string "^1.5.3"
+    commander "^5.1.0"
+    core-js "^3.6.5"
+    deep-equal "^2.0.3"
+    fs-extra "^9.0.0"
+    lodash "^4.17.15"
     pngjs "^5.0.0"
     xcode "^3.0.0"
     xml-js "^1.6.11"
@@ -2881,6 +2908,13 @@ expand-brackets@^2.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+expo-app-loading@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/expo-app-loading/-/expo-app-loading-1.0.1.tgz#a2ef73235c5dd0a99c0319ad9d3f4d278237564c"
+  integrity sha512-qgsystchwMHep43YMAMHJAD5bRUikolQpb1d+ySWF4ZFTtNInmLAPqiBcVSey5taRuHD3cAvEijx3wc0W/HfVw==
+  dependencies:
+    expo-splash-screen "0.8.1"
+
 expo-asset@~8.1.7:
   version "8.1.7"
   resolved "https://registry.yarnpkg.com/expo-asset/-/expo-asset-8.1.7.tgz#32618e51f85df56f1d7dd54c71eb486ae7f7674e"
@@ -2981,6 +3015,13 @@ expo-permissions@~9.0.1:
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/expo-permissions/-/expo-permissions-9.0.1.tgz#dc10b58654bbe39bbbed5827369942b01b08055e"
   integrity sha512-CosJgy8XQRN/OFG2JTQDcFxz3XTGi27coCMym/hVXWtQfk0z6PwdRG5IXHfLGuSckwIcgmirrwm2+Zc0X3MmNg==
+
+expo-splash-screen@0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/expo-splash-screen/-/expo-splash-screen-0.8.1.tgz#de4a018c82af879eeaa9b697013ef37d9567453a"
+  integrity sha512-7NQo8OgkfQ4sv4mIHE58fkiQTGyl5dOP70uAUTb5YXC/QUsHIqEpKQ6ZXDpkLU1cbZ32c8Vtok4r2FRIUrzxcg==
+  dependencies:
+    "@expo/configure-splash-screen" "0.3.1"
 
 expo-splash-screen@^0.5.0:
   version "0.5.0"
@@ -5073,6 +5114,11 @@ pify@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/pify/-/pify-4.0.1.tgz#4b2cd25c50d598735c50292224fd8c6df41e3231"
   integrity sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g==
+
+pinar@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/pinar/-/pinar-0.11.0.tgz#0040dd9df66b53ae0dc192371a56c0f05d327c6d"
+  integrity sha512-e/i2IIxqwLuhVgQ2d/jP+5DSonxEgS2J1joREdt0f3iENVTw9/td0r2BId9oURW9iDfZqArJzBomLXhIF0huNw==
 
 pirates@^4.0.0:
   version "4.0.1"

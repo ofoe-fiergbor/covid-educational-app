@@ -10,9 +10,6 @@ import TabNavigation from "./TabNavigation";
 import DrawerNavigation from "./DrawerNavigation";
 import PostDetail from "../components/PostWall/PostDetail";
 import { connect } from "react-redux";
-import SignBoarding from "../screens/SignBoarding";
-import DrawerBoarding from "../screens/DrawerBoarding";
-import AllappsBoarding from "../screens/AllappsBoarding";
 import TipsWallDetail from '../components/TipsWall/TipsDetail/TipsWallDetail'
 
 
@@ -86,21 +83,6 @@ const StackNavigation = ({ navigate, auth }) => {
           <Stack.Screen
             name="welcome"
             component={Welcome}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="signboard"
-            component={SignBoarding}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="drawerboard"
-            component={DrawerBoarding}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="allappsboard"
-            component={AllappsBoarding}
             options={{ headerShown: false }}
           />
           <Stack.Screen
