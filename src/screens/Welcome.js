@@ -1,35 +1,44 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
+import Swiper from "../components/Swiper/Swiper";
+import bg from "../img/bg2.png";
+import Carousel from 'pinar'
 
 const welcome = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <Text>Welcome Screen</Text>
-      <View style={styles.btnContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("register")}>
-          <Text>Register</Text>
-        </TouchableOpacity>
-
+    <ImageBackground
+      style={StyleSheet.absoluteFillObject}
+      resizeMode="cover"
+      source={bg}
+    >
+        <Swiper />
+      <View>
         <TouchableOpacity onPress={() => navigation.navigate("login")}>
-          <Text>Login</Text>
+          <Text style={styles.button}>Get Started</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 
 export default welcome;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  btnContainer: {
-    flexDirection: "row",
-    marginVertical: 30,
-    width: 150,
-    justifyContent: "space-between",
+  button: {
+    marginBottom: 70,
+    alignSelf: "center",
+    backgroundColor: "#fff",
+    fontFamily: "Quicksand_700Bold",
+    paddingHorizontal: 60,
+    borderRadius: 5,
+    paddingVertical: 13,
+    fontSize: 18,
+    color: "#0e0a8f",
   },
 });
