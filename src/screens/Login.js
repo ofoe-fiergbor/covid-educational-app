@@ -78,6 +78,7 @@ class Login extends React.Component {
                   style={{ color: "grey" }}
                   placeholder="Email"
                   keyboardType="email-address"
+                  autoCapitalize="none"
                   value={this.state.email}
                   placeholderTextColor="#545454"
                   onChangeText={(text) => this.handleTextChange("email", text)}
@@ -93,6 +94,7 @@ class Login extends React.Component {
                 <TextInput
                   placeholder="Password"
                   secureTextEntry={true}
+                  autoCapitalize="none"
                   value={this.state.password}
                   placeholderTextColor="#545454"
                   onChangeText={(text) =>
@@ -107,7 +109,7 @@ class Login extends React.Component {
           </TouchableOpacity>
           <View style={styles.option}>
             <View style={styles.line}/>
-            <Text style={styles.lineText}>OR</Text>
+            <Text style={styles.lineText}>or</Text>
             <View style={styles.line}/>
           </View>
           <TouchableOpacity onPress={()=>navigation.navigate("register")}>
@@ -220,6 +222,7 @@ const styles = StyleSheet.create({
     width: 120
   },
   lineText:{
-    fontFamily: "Quicksand_700Bold"
+    fontFamily: "Quicksand_700Bold",
+    fontSize: 16
   }
 });
