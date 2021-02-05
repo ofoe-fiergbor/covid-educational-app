@@ -11,13 +11,15 @@ import {
   CormorantUpright_500Medium,
 } from "@expo-google-fonts/cormorant-upright";
 import {
-  Quicksand_700Bold
+  Quicksand_700Bold,
+  Quicksand_500Medium
 } from "@expo-google-fonts/quicksand";
 export default function App() {
   let [fontsLoaded] = useFonts({
     CormorantUpright_700Bold,
     CormorantUpright_500Medium,
-    Quicksand_700Bold
+    Quicksand_700Bold,
+    Quicksand_500Medium
   });
 
   if (!fontsLoaded) {
