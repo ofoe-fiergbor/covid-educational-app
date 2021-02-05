@@ -4,12 +4,12 @@ import { Avatar, Title, Caption, Drawer } from "react-native-paper";
 import { signOut } from "../Redux/Action/AuthActions";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Icon from "react-native-vector-icons/AntDesign";
 import { connect } from "react-redux";
 
 function DrawerEntity(props) {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, }}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.userInfoSection}>
@@ -34,7 +34,7 @@ function DrawerEntity(props) {
           <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="home-outline" color={color} size={size} />
+                <Icon name="home" color={color} size={size} />
               )}
               label="My Wall"
               onPress={() => {
@@ -43,16 +43,25 @@ function DrawerEntity(props) {
             />
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="settings-outline" color={color} size={size} />
+                <Icon name="user" color={color} size={size} />
               )}
-              label="Settings"
+              label="My Profile"
               onPress={() => {
-                props.navigation.navigate("Settings");
+                props.navigation.navigate("My Profile");
               }}
             />
             <DrawerItem
               icon={({ color, size }) => (
-                <Icon name="account-check-outline" color={color} size={size} />
+                <Icon name="bulb1" color={color} size={size} />
+              )}
+              label="Tips"
+              onPress={() => {
+                props.navigation.navigate("Tips");
+              }}
+            />
+            <DrawerItem
+              icon={({ color, size }) => (
+                <Icon name="question" color={color} size={size} />
               )}
               label="FAQ"
               onPress={() => {
@@ -75,7 +84,7 @@ function DrawerEntity(props) {
       <Drawer.Section style={styles.bottomDrawerSection}>
         <DrawerItem
           icon={({ color, size }) => (
-            <Icon name="exit-to-app" color={color} size={size} />
+            <Icon name="logout" color={color} size={size} />
           )}
           label="Sign Out"
           onPress={() => {
