@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  
 } from "react-native";
 import image from "../img/background.png";
 import covid from "../img/landing.png";
@@ -17,6 +18,7 @@ const Landing = ({ navigation }) => {
       resizeMode="cover"
       source={image}
     >
+      
       <View style={styles.container}>
         <View style={styles.headerContainer}>
           <Text style={styles.header}>Educov</Text>
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "#fff",
     fontFamily: "Quicksand_700Bold",
-    paddingHorizontal: 60,
+    paddingHorizontal: 80,
     borderRadius: 5,
     paddingVertical: 13,
     fontSize: 18,

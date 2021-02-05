@@ -7,12 +7,12 @@ import {
   TextInput,
   Image,
   ScrollView,
+  Dimensions,
 } from "react-native";
 import { connect } from "react-redux";
 import { signIn } from "../Redux/Action/AuthActions";
-import blob from "../img/blob.png";
-import { Entypo } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
+import { Entypo, Feather, FontAwesome } from "@expo/vector-icons";
+import WavyHeader from "../components/WavyHeader/WavyHeader";
 
 class Login extends React.Component {
   constructor(props) {
@@ -37,25 +37,26 @@ class Login extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Image source={blob} style={styles.blob__image} />
-          <View
-            style={{ alignItems: "center", fontSize: 30, marginVertical: 80 }}
-          >
-            <Text
-              style={{ fontSize: 55, fontWeight: "bold", letterSpacing: 2 }}
-            >
-              Hello
-            </Text>
-            <Text
-              style={{
-                fontSize: 18,
-                fontWeight: "bold",
-                letterSpacing: 2,
-                color: "grey",
-              }}
-            >
-              Sign in to your account
-            </Text>
+          <WavyHeader
+            customStyles={styles.svgCurve}
+            customHeight={230}
+            customTop={200}
+            customBgColor="#061C56"
+            customWavePattern="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          />
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => navigation.navigate("welcome")}>
+              <FontAwesome
+                name="long-arrow-left"
+                size={24}
+                color="#fff"
+                style={styles.backBtn}
+              />
+            </TouchableOpacity>
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerText}>Welcome</Text>
+              <Text style={styles.headerText}>Back</Text>
+            </View>
           </View>
           <View style={styles.formContainer}>
             {auth.error && (
@@ -63,20 +64,22 @@ class Login extends React.Component {
                 {auth.error.loginError}
               </Text>
             )}
-            <View style={{ marginBottom: 50 }}>
+
+            <View style={{ marginBottom: 20 }}>
               <View style={styles.textField}>
                 <Entypo
                   name="email"
                   keyboardType="email-address"
                   size={20}
-                  color="black"
-                  style={{ marginRight: 30, elevation: 20 }}
+                  color="#545454"
+                  style={{ marginRight: 30 }}
                 />
                 <TextInput
                   style={{ color: "grey" }}
                   placeholder="Email"
                   keyboardType="email-address"
                   value={this.state.email}
+                  placeholderTextColor="#545454"
                   onChangeText={(text) => this.handleTextChange("email", text)}
                 />
               </View>
@@ -84,13 +87,14 @@ class Login extends React.Component {
                 <Entypo
                   name="lock"
                   size={20}
-                  color="black"
-                  style={{ marginRight: 30, elevation: 20 }}
+                  color="#545454"
+                  style={{ marginRight: 30 }}
                 />
                 <TextInput
                   placeholder="Password"
                   secureTextEntry={true}
                   value={this.state.password}
+                  placeholderTextColor="#545454"
                   onChangeText={(text) =>
                     this.handleTextChange("password", text)
                   }
@@ -98,45 +102,17 @@ class Login extends React.Component {
               </View>
             </View>
           </View>
-          <TouchableOpacity
-            style={styles.registerBtn}
-            onPress={this.handleSubmit}
-          >
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "#fff",
-                marginRight: 10,
-              }}
-            >
-              Login
-            </Text>
-            <Feather
-              name="arrow-right"
-              size={25}
-              color="#fff"
-              style={{ fontWeight: "bold" }}
-            />
+          <TouchableOpacity onPress={this.handleSubmit}>
+            <Text style={styles.registerBtn}>Login</Text>
           </TouchableOpacity>
-          {/* <Text style={{ fontSize: 15, alignSelf: "center" }}>or</Text>
-        <TouchableOpacity
-          style={{ ...styles.registerBtn, backgroundColor: "red" }}
-        >
-          <Text style={{ fontSize: 15, color: "#fff" }}>Login with Google</Text>
-        </TouchableOpacity> */}
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              marginTop: 10,
-            }}
-          >
-            <Text style={{ marginRight: 10 }}>Don't have an account?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("register")}>
-              <Text style={{ color: "skyblue" }}>Register</Text>
-            </TouchableOpacity>
+          <View style={styles.option}>
+            <View style={styles.line}/>
+            <Text style={styles.lineText}>OR</Text>
+            <View style={styles.line}/>
           </View>
+          <TouchableOpacity onPress={()=>navigation.navigate("register")}>
+            <Text style={styles.registerBtn2}>Sign Up</Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     );
@@ -154,6 +130,8 @@ export default connect(mstp, { signIn })(Login);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#fff",
+    flexDirection: "column",
   },
   btn: {
     marginVertical: 50,
@@ -163,41 +141,85 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 40,
   },
+  header: {
+    flex: 4,
+  },
   formContainer: {
     paddingHorizontal: 10,
+    paddingTop: 40,
+    flex: 6,
   },
   textField: {
     lineHeight: 30,
-    marginVertical: 15,
-    fontSize: 18,
-    backgroundColor: "#fff",
-    paddingHorizontal: 30,
+    marginVertical: 10,
+    fontSize: 20,
+    borderBottomColor: "#545454",
+    paddingHorizontal: 20,
     paddingVertical: 10,
-    elevation: 10,
     borderRadius: 50,
     flexDirection: "row",
+    fontFamily: "Quicksand_700Bold",
     alignItems: "center",
+    borderBottomWidth: 1,
   },
   registerBtn: {
-    marginBottom: 70,
-    paddingHorizontal: 35,
+    lineHeight: 30,
+    fontSize: 20,
+    paddingHorizontal: 20,
     paddingVertical: 10,
-    alignSelf: "flex-end",
-    justifyContent: "flex-end",
+    borderRadius: 5,
     flexDirection: "row",
-    marginHorizontal: 15,
-    backgroundColor: "skyblue",
-    padding: 10,
-    borderTopLeftRadius: 50,
-    borderBottomLeftRadius: 50,
-    alignItems: "center",
-    elevation: 20,
+    fontFamily: "Quicksand_700Bold",
+    textAlign: "center",
+    backgroundColor: "#0e0a8f",
+    color: "#fff",
+    marginHorizontal: 30,
   },
-  blob__image: {
+  registerBtn2: {
+    lineHeight: 30,
+    fontSize: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 5,
+    flexDirection: "row",
+    fontFamily: "Quicksand_700Bold",
+    textAlign: "center",
+    borderColor: "#0e0a8f",
+    color: "#0e0a8f",
+    marginHorizontal: 30,
+    borderWidth: 1
+  },
+  svgCurve: {
     position: "absolute",
-    right: 0,
-    top: 0,
-    width: 200,
-    height: 350,
+    width: Dimensions.get("window").width,
   },
+  headerText: {
+    marginHorizontal: 30,
+    fontFamily: "Quicksand_700Bold",
+    color: "#fff",
+    fontSize: 30,
+    marginBottom: 10,
+  },
+  headerContainer: {
+    marginVertical: 30,
+  },
+  backBtn: {
+    margin: 30,
+  },
+  option:{
+    flexDirection: "row",
+    marginHorizontal: 30,
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginVertical: 30
+  },
+
+  line:{
+    borderBottomColor: "#545454",
+    borderBottomWidth: 1,
+    width: 120
+  },
+  lineText:{
+    fontFamily: "Quicksand_700Bold"
+  }
 });

@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "#fff",
     fontFamily: "Quicksand_700Bold",
-    paddingHorizontal: 60,
+    paddingHorizontal: 80,
     borderRadius: 5,
     paddingVertical: 13,
     fontSize: 18,
