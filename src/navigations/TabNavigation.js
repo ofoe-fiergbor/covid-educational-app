@@ -1,30 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { Entypo, AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import PostWall from "../screens/PostWall";
 import NewsWall from "../screens/NewsWall";
 import TrackerWall from "../screens/TrackerWall";
 import TipsWall from "../screens/TipsWall";
+import StoreWall from "../screens/StoreWall";
 
-const BottomTabs = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigation = () => {
   return (
-    <BottomTabs.Navigator
-      initialRouteName="post"
-      tabBarOptions={{
-        activeTintColor: "skyblue",
-        style: {
-          height: 60,
-          paddingBottom: 5,
-          backgroundColor: "#f5f5f5",
-          shadowColor: "transparent",
-          elevation: 0,
-        },
-      }}
-    >
-      <BottomTabs.Screen
+    <Tab.Navigator initialRouteName="post">
+      <Tab.Screen
         name="post"
         component={PostWall}
         options={{
@@ -32,9 +21,10 @@ const TabNavigation = () => {
           tabBarIcon: ({ color }) => (
             <Entypo name="list" size={26} color={color} />
           ),
+          tabBarColor: "#035efc",
         }}
       />
-      <BottomTabs.Screen
+      <Tab.Screen
         name="news"
         component={NewsWall}
         options={{
@@ -42,9 +32,10 @@ const TabNavigation = () => {
           tabBarIcon: ({ color }) => (
             <Entypo name="news" size={26} color={color} />
           ),
+          tabBarColor: "#525efc",
         }}
       />
-      <BottomTabs.Screen
+      <Tab.Screen
         name="tracker"
         component={TrackerWall}
         options={{
@@ -52,23 +43,25 @@ const TabNavigation = () => {
           tabBarIcon: ({ color }) => (
             <AntDesign name="linechart" size={26} color={color} />
           ),
+          tabBarColor: "#0b357d",
         }}
       />
-      <BottomTabs.Screen
-        name="tips"
-        component={TipsWall}
+      <Tab.Screen
+        name="store"
+        component={StoreWall}
         options={{
-          tabBarLabel: "Tips",
+          tabBarLabel: "Store",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
-              name="lightbulb-on-outline"
+              name="cart"
               size={26}
               color={color}
             />
           ),
+          tabBarColor: "#4c44ad",
         }}
       />
-    </BottomTabs.Navigator>
+    </Tab.Navigator>
   );
 };
 

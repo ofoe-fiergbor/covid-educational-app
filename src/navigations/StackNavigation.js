@@ -22,12 +22,17 @@ const StackNavigation = ({ navigate, auth }) => {
       {auth.isLoggedIn ? (
         <Stack.Navigator
           screenOptions={{
-            headerTitle: "COVID 19 EDU APP",
+            headerTitle: "EDUCOV",
             headerTitleAlign: "center",
             headerTintColor: "#fff",
             headerStyle: {
-              backgroundColor: "#326da8",
+              backgroundColor: "#525efc",
+              
             },
+            headerTitleStyle:{
+              fontFamily: "CormorantUpright_700Bold",
+              fontSize: 30
+            }
           }}
         >
           <Stack.Screen name="drawer" component={DrawerNavigation} />
